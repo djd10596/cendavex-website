@@ -179,6 +179,33 @@
       overflow: hidden;
     }
 
+    .hero-logo {
+      position: relative;
+      z-index: 2;
+      width: min(100%, 440px);
+      display: block;
+      margin: 0 auto 24px;
+      border-radius: 18px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.32);
+    }
+
+    .hero-card-copy {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .hero-card-copy strong {
+      display: block;
+      font-size: 1.35rem;
+      margin-bottom: 5px;
+    }
+
+    .hero-card-copy span {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
     .hero-card::before {
       content: "";
       position: absolute;
@@ -382,11 +409,17 @@
         </div>
       </div>
 
-      <div class="hero-card" aria-label="Cendavex performance concept">
-        <div class="metric-label">Strategy Intelligence</div>
-        <div class="metric-value">Adaptive AI</div>
+      <div class="hero-card" aria-label="Cendavex Technologies">
+        <img
+          class="hero-logo"
+          src="assets/cendavex-logo.png"
+          alt="Cendavex Technologies — Intelligence Today, A Brighter Tomorrow"
+        >
 
-        <div class="chart"></div>
+        <div class="hero-card-copy">
+          <strong>Autonomous Intelligence. Disciplined Risk.</strong>
+          <span>Built to analyze, decide, protect, and advance.</span>
+        </div>
 
         <div class="mini-grid">
           <div class="mini-card">
