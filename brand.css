@@ -74,3 +74,42 @@ h1,h2,h3{overflow-wrap:anywhere}
 .cx-public-chrome{padding-inline:clamp(18px,4vw,64px)}
 .cx-public-chrome .cx-nav,.cx-public-chrome .cx-pulse{max-width:1280px;margin-inline:auto}
 @media(max-width:760px){.cx-pulse-static .cx-pulse-sessions{grid-column:1/-1}.cx-pulse-static .cx-pulse-toggle{grid-column:2;grid-row:2}.cx-chrome .cx-pulse-static>small:first-of-type{grid-column:1;grid-row:2}.cx-chrome .cx-pulse-static>small{line-height:1.4}.cx-pulse-sessions span{white-space:normal}}
+/* Market Pulse 2.2: single provider row, intact attribution, disclosures on demand. */
+.site-header{padding-block:12px;min-height:0}.site-header .brand img{width:96px;height:96px}
+.cx-public-chrome{padding-top:0}.cx-public-chrome .cx-nav{padding:0;gap:6px;align-items:center;min-height:48px}
+.cx-public-chrome .cx-nav a{padding:6px 10px;border:0;background:transparent}
+.cx-public-chrome .cx-nav .brand{padding:0;margin-right:auto;min-height:48px}
+.cx-public-chrome .cx-nav .brand img{width:48px;height:48px;object-fit:contain}
+.cx-public-chrome .cx-pulse-static{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:6px;padding:0;min-height:58px;position:relative}
+.cx-public-chrome .cx-provider{grid-column:1;grid-row:1}
+.cx-public-chrome .tradingview-widget-container{display:flex!important;align-items:center;height:58px!important;min-width:0}
+.cx-public-chrome .cx-provider iframe{height:58px!important;width:calc(100% - 100px)!important;flex:1;min-width:0}
+.cx-public-chrome .tradingview-widget-copyright{width:100px;flex:0 0 100px;font-size:10px!important;line-height:16px!important;margin:0!important;white-space:normal!important;text-align:center!important}
+.cx-public-chrome .cx-pulse-toggle{min-width:44px;padding:6px 8px;font-size:11px;grid-column:2;grid-row:1}
+.cx-pulse-info{grid-column:3;grid-row:1}.cx-pulse-info summary{cursor:pointer;list-style:none;display:grid;place-items:center;width:44px;height:44px;color:var(--accent);font-size:20px}.cx-pulse-info summary::-webkit-details-marker{display:none}
+.cx-pulse-info-panel{position:absolute;right:0;top:100%;width:min(440px,100%);max-height:60vh;overflow:auto;padding:16px;background:#0e1930;border:1px solid var(--border);box-shadow:var(--shadow);z-index:2;display:grid;gap:10px}
+.cx-public-chrome .cx-pulse-info-panel small{font-size:12px;line-height:1.5}.cx-pulse-info-panel .cx-pulse-title{display:block}.cx-pulse-info-panel .cx-pulse-sessions{font-size:11px}
+.cx-provider[hidden]+.cx-pulse-toggle{grid-column:2}
+.cx-pulse-static[data-provider-state=off]::before,.cx-pulse-static[data-provider-state=failed]::before{content:'Quotes off · markets in ⓘ';font-size:12px;color:var(--muted);grid-column:1;grid-row:1}
+body:has([data-news-center]) main>.section-brand{padding-top:16px}body:has([data-news-center]) .cx-news{margin-top:0}
+@media(max-width:760px){.cx-public-chrome{padding-inline:12px}.cx-public-chrome .cx-nav .brand{position:sticky;left:0;background:#081326;z-index:1}.cx-public-chrome .cx-nav .brand img{width:44px;height:44px}.cx-public-chrome .cx-provider iframe{width:calc(100% - 70px)!important}.cx-public-chrome .tradingview-widget-copyright{width:70px;flex-basis:70px;font-size:9px!important}.cx-public-chrome .cx-pulse-static{gap:2px}.cx-public-chrome .cx-pulse-toggle{padding:4px;font-size:10px;min-width:44px}.cx-pulse-info-panel .cx-pulse-sessions{grid-column:auto}.cx-pulse-info-panel .cx-pulse-title{display:block}}
+.cx-public-chrome .cx-nav a.button{background:linear-gradient(135deg,#a3d2ff,#5b9ff7);color:#071321;border:1px solid #82baff;padding:6px 10px}
+.cx-pulse-info summary{font-size:11px;border:1px solid #4f7dac;border-radius:8px}
+/* Keep news filter labels readable in WebKit's native select control. */
+.cx-news-filters select{color-scheme:dark}
+.cx-pulse-static[data-provider-state=failed]::before{content:'Quotes unavailable · markets in Info'}
+.cx-pulse-static[data-provider-state=off]::before{content:'Quotes off · markets in Info'}
+.cx-public-chrome .cx-nav .brand{margin-right:0}.cx-market-label{margin-right:auto;white-space:nowrap;font-size:10px;color:var(--muted)}
+.cx-public-chrome .tradingview-widget-copyright{font-size:11px!important}
+@media(max-width:1050px){.cx-market-label{display:none}.cx-public-chrome .cx-nav .brand{margin-right:auto}}
+.cx-public-chrome .cx-pulse-info-panel .cx-pulse-toggle{grid-column:auto;grid-row:auto;justify-self:start;font-size:12px}
+/* Controls share the navigation row, leaving mobile quotes enough room to read. */
+.cx-public-chrome .cx-nav{overflow:visible;gap:6px}
+.cx-nav-links{display:flex;align-items:center;gap:6px;overflow-x:auto;min-width:0;flex:1;scrollbar-width:none;overscroll-behavior-x:contain}
+.cx-public-chrome .cx-nav .cx-pulse-toggle,.cx-public-chrome .cx-nav .cx-pulse-info{flex-shrink:0}
+.cx-public-chrome .cx-nav .cx-pulse-toggle{padding:4px 6px;min-width:44px;min-height:44px;font-size:11px}
+.cx-public-chrome .cx-nav .brand{flex-shrink:0;margin-right:0}
+.cx-public-chrome .cx-pulse-static{grid-template-columns:minmax(0,1fr);gap:0}
+.cx-pulse-info-panel{width:min(440px,100vw - 24px)}
+.cx-public-chrome .cx-nav-links a.button{background:linear-gradient(135deg,#a3d2ff,#5b9ff7);color:#071321}
+@media(max-width:760px){.cx-public-chrome .cx-nav .brand{position:static;margin-right:0}.cx-public-chrome .cx-nav .cx-pulse-toggle{font-size:10px;max-width:50px;white-space:normal}}

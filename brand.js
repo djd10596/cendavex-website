@@ -20,7 +20,7 @@ const make=(tag,value,cls)=>{const e=document.createElement(tag);if(value)e.text
 const safeLink=(label,url)=>{const a=make('a',label);a.href=url;a.target='_blank';a.rel='noopener noreferrer';return a;};
 function sessionLabel(){return 'US equities · '+session()+' (scheduled)';}
 function pulse(){document.querySelectorAll('[data-market-pulse]').forEach(root=>{
- if(root.dataset.ready){root.querySelector('[data-equity-session]').textContent=sessionLabel();return;}
+ if(root.dataset.ready){const label=(root.closest('.cx-chrome')||root).querySelector('[data-equity-session]');if(label)label.textContent=sessionLabel();return;}
  root.dataset.ready='true';root.classList.add('cx-pulse-static');root.setAttribute('role','region');root.setAttribute('aria-label','Market Pulse');
  const title=make('span','MARKET PULSE','cx-pulse-title'),sessions=make('div',null,'cx-pulse-sessions'),equities=make('span',sessionLabel());equities.dataset.equitySession='true';
  sessions.append(equities,make('span','Crypto · 24/7 market'));root.replaceChildren(title,sessions);
@@ -34,26 +34,42 @@ function pulse(){document.querySelectorAll('[data-market-pulse]').forEach(root=>
  const status=make('small','TradingView quotes may be delayed or unavailable; freshness is not independently verified.');status.setAttribute('role','status');
  const links=make('small',null,'cx-provider-links');links.append(document.createTextNode('Open markets: '));
  for(const [name,key] of [['SPY','AMEX-SPY'],['QQQ','NASDAQ-QQQ'],['DIA','AMEX-DIA'],['IWM','AMEX-IWM'],['BTC/USD','BITSTAMP-BTCUSD'],['ETH/USD','BITSTAMP-ETHUSD']])links.append(safeLink(name+' ↗','https://www.tradingview.com/symbols/'+key+'/'),document.createTextNode('  '));
- root.append(toggle,provider,status,links);
- const reduced=matchMedia('(prefers-reduced-motion: reduce)');let hidden=false,timer=null,observer=null,generation=0;
- try{hidden=localStorage.getItem('cendavexQuotesHidden')==='true'||localStorage.getItem('cendavexPulsePaused')==='true'||localStorage.getItem('cendavexMotionPaused')==='true';}catch(_){}
+ const info=make('details',null,'cx-pulse-info'),summary=make('summary','Info');summary.setAttribute('aria-label','Market availability and display status');
+ const panel=make('div',null,'cx-pulse-info-panel');panel.append(title,sessions,note,status,links);info.append(summary,panel);
+ root.replaceChildren(provider,toggle,info);
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');let hidden=false,timer=null,observer=null,generation=0,appliedOff=null,retry=false;
+ try{hidden=localStorage.getItem('cendavexQuotesHidden')==='true'||localStorage.getItem('cendavexPulsePaused')==='true';}catch(_){}
  function stop(){generation++;clearTimeout(timer);observer?.disconnect();provider.replaceChildren();}
  function show(){
   stop();const run=generation;provider.hidden=false;
   const container=make('div',null,'tradingview-widget-container'),widget=make('div',null,'tradingview-widget-container__widget'),copyright=make('div',null,'tradingview-widget-copyright');
   const attribution=safeLink(null,'https://www.tradingview.com/markets/?utm_source=www.tradingview.com&utm_medium=widget_new&utm_campaign=ticker-tape');attribution.rel='noopener nofollow';attribution.append(make('span','Ticker tape','blue-text'));copyright.append(attribution,make('span',' by TradingView','trademark'));
   const script=document.createElement('script');script.src='https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js';script.async=true;
-  script.textContent=JSON.stringify({symbols:[{proName:'AMEX:SPY',title:'SPY'},{proName:'NASDAQ:QQQ',title:'QQQ'},{proName:'AMEX:DIA',title:'DIA'},{proName:'AMEX:IWM',title:'IWM'},{proName:'BITSTAMP:BTCUSD',title:'BTC/USD'},{proName:'BITSTAMP:ETHUSD',title:'ETH/USD'}],showSymbolLogo:true,colorTheme:'dark',isTransparent:false,displayMode:'adaptive',locale:'en'});
-  function failed(){if(run!==generation)return;stop();provider.hidden=true;status.textContent='TradingView could not be loaded. Quotes unavailable here; use the market links below.';toggle.textContent='Retry moving quotes';toggle.setAttribute('aria-expanded','false');}
+  script.textContent=JSON.stringify({symbols:[{proName:'AMEX:SPY',title:'SPY'},{proName:'NASDAQ:QQQ',title:'QQQ'},{proName:'AMEX:DIA',title:'DIA'},{proName:'AMEX:IWM',title:'IWM'},{proName:'BITSTAMP:BTCUSD',title:'BTC/USD'},{proName:'BITSTAMP:ETHUSD',title:'ETH/USD'}],showSymbolLogo:true,colorTheme:'dark',isTransparent:false,displayMode:'regular',locale:'en'});
+  function failed(){if(run!==generation)return;stop();provider.hidden=true;retry=true;root.dataset.providerState='failed';status.textContent='TradingView request failed. Quotes unavailable here; use the market links.';toggle.textContent='Retry quotes';toggle.setAttribute('aria-label','Retry moving quotes');toggle.setAttribute('aria-expanded','false');}
   script.addEventListener('error',failed,{once:true});
-  observer=new MutationObserver(()=>{const frame=widget.querySelector('iframe');if(!frame)return;frame.title='TradingView market quotes';observer.disconnect();frame.addEventListener('load',()=>{if(run!==generation)return;clearTimeout(timer);status.textContent='TradingView display loaded. Quotes may be delayed or unavailable; freshness is not independently verified.';},{once:true});});
-  observer.observe(widget,{childList:true,subtree:true});container.append(widget,copyright,script);provider.append(container);
-  status.textContent='Loading TradingView. Quotes may be delayed or unavailable; freshness is not independently verified.';timer=setTimeout(failed,15000);
+  root.dataset.providerState='loading';delete root.dataset.scriptLoaded;retry=false;
+  script.addEventListener('load',()=>{if(run!==generation)return;root.dataset.scriptLoaded='true';},{once:true});
+  // TradingView REPLACES the placeholder: observe its stable parent, not the detached node.
+  observer=new MutationObserver(()=>{const frame=container.querySelector('iframe');if(!frame)return;frame.title='TradingView market quotes';observer.disconnect();root.dataset.providerState='frame-created';
+   frame.addEventListener('load',()=>{if(run!==generation)return;clearTimeout(timer);retry=false;toggle.textContent='Hide quotes';toggle.setAttribute('aria-label','Hide moving quotes');root.dataset.providerState='frame-loaded';status.textContent='TradingView frame loaded; rendered content and quote freshness are not independently verified. Quotes may be delayed or unavailable.';},{once:true});
+   frame.addEventListener('error',failed,{once:true});
+  });
+  observer.observe(container,{childList:true,subtree:true});container.append(widget,copyright,script);provider.append(container);
+  status.textContent='Loading TradingView. Quotes may be delayed or unavailable; freshness is not independently verified.';
+  // Elapsed time is uncertainty, never evidence that a functioning frame failed.
+  timer=setTimeout(()=>{if(run!==generation)return;root.dataset.providerState='unverified';status.textContent='TradingView availability is unverified. Quotes may be delayed or unavailable; use the market links or retry.';retry=true;toggle.textContent='Retry quotes';toggle.setAttribute('aria-label','Retry moving quotes');},15000);
  }
- function apply(){stop();const off=hidden||reduced.matches||document.documentElement.classList.contains('cx-motion-paused');provider.hidden=off;toggle.disabled=reduced.matches||document.documentElement.classList.contains('cx-motion-paused');toggle.textContent=reduced.matches?'Reduced motion · quotes off':document.documentElement.classList.contains('cx-motion-paused')?'Visual motion · quotes off':off?'Show moving quotes':'Hide moving quotes';toggle.setAttribute('aria-expanded',String(!off));status.textContent=off?'Moving quotes are off. Open the market links for provider quotes.':'Loading TradingView.';if(!off)show();}
- toggle.addEventListener('click',()=>{hidden=provider.hidden?false:true;try{localStorage.setItem('cendavexQuotesHidden',String(hidden));}catch(_){}apply();});reduced.addEventListener('change',apply);
- // The shared visual-motion control also removes the cross-origin animation.
- new MutationObserver(apply).observe(document.documentElement,{attributes:true,attributeFilter:['class']});apply();
+ const reload=make('button','Retry provider display','cx-pulse-toggle');reload.type='button';panel.append(reload);
+ reload.addEventListener('click',()=>{hidden=false;try{localStorage.setItem('cendavexQuotesHidden','false');}catch(_){}apply(true);});
+ function apply(force=false){const off=hidden||reduced.matches||document.documentElement.classList.contains('cx-motion-paused');
+  if(!force&&appliedOff===off)return;appliedOff=off;stop();provider.hidden=off;retry=false;
+  toggle.disabled=reduced.matches||document.documentElement.classList.contains('cx-motion-paused');reload.disabled=toggle.disabled;toggle.textContent=off?'Show quotes':'Hide quotes';toggle.setAttribute('aria-label',off?'Show moving quotes':'Hide moving quotes');toggle.setAttribute('aria-expanded',String(!off));
+  root.dataset.providerState=off?'off':'loading';status.textContent=off?'Moving quotes are off. Open the market links for provider quotes.':'Loading TradingView.';if(!off)show();
+ }
+ toggle.addEventListener('click',()=>{hidden=retry?false:!hidden;try{localStorage.setItem('cendavexQuotesHidden',String(hidden));}catch(_){}apply(true);});reduced.addEventListener('change',()=>apply());
+ // Only an actual motion preference transition resets the widget, never unrelated classes.
+ new MutationObserver(()=>apply()).observe(document.documentElement,{attributes:true,attributeFilter:['class']});apply();
  });}
 pulse();setInterval(pulse,60000);
 function selectedNews(items,{category='All categories',symbol='',query='',archive=false,order='Topic mix'}={}){
@@ -149,7 +165,7 @@ const profiles={
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 document.querySelectorAll('[data-market-pulse]').forEach(pulse=>{
  let nav=pulse.previousElementSibling;if(!nav?.classList.contains('cx-nav')){nav=document.querySelector('.site-header nav');if(!nav)return;nav.classList.add('cx-nav');pulse.before(nav);}
- const chrome=document.createElement('div');chrome.className='cx-chrome';nav.before(chrome);chrome.append(nav,pulse);if(pulse.hasAttribute('data-tradingview')){chrome.classList.add('cx-public-chrome');document.querySelector('main')?.before(chrome);}
+ const chrome=document.createElement('div');chrome.className='cx-chrome';nav.before(chrome);chrome.append(nav,pulse);if(pulse.hasAttribute('data-tradingview')){chrome.classList.add('cx-public-chrome');const brand=document.querySelector('.site-header .brand');const navLinks=document.createElement('div');navLinks.className='cx-nav-links';navLinks.append(...nav.children);nav.append(navLinks);if(brand){nav.prepend(brand.cloneNode(true));const label=document.createElement('span');label.className='cx-market-label';label.textContent='MARKET PULSE · Quotes may be delayed';nav.firstElementChild.after(label);}nav.append(pulse.querySelector('.cx-pulse-toggle'),pulse.querySelector('.cx-pulse-info'));document.querySelector('main')?.before(chrome);}
  const measure=()=>{document.documentElement.style.setProperty('--cx-chrome-height',Math.ceil(chrome.getBoundingClientRect().height)+'px');const view=pulse.querySelector('.cx-pulse-viewport'),items=pulse.querySelector('.cx-pulse-items');if(view&&items)pulse.style.setProperty('--cx-tape-distance',Math.min(0,view.clientWidth-items.scrollWidth)+'px');};
  if('ResizeObserver'in window)new ResizeObserver(measure).observe(chrome);window.addEventListener('resize',measure,{passive:true});measure();
 });
