@@ -13,3 +13,5 @@ Source/data composition and full evidence live in the isolated engineering
 checkout's `docs/brand-rebuild-20261012.md`. Keep this repository's existing main
 branch, GitHub Pages hosting and CNAME. Roll back with a Git revert of the brand
 release commit and push that revert to main; retain subsequent unrelated changes.
+
+Experience 2.0 makes four-profile intelligent investing the homepage flagship. Public composition figures reflect verified Cendavex mandates; exploring profiles never changes an account. Founding beta remains paper money and live customer investing is unavailable. Native cinematic motion respects reduced motion and includes a pause control. News renders only attributed public metadata and SEC filing-event links; customer-display market prices remain unavailable pending commercial licensing. Exact approved logo preserved.
