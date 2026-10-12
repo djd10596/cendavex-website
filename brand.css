@@ -57,3 +57,20 @@ html{scroll-padding-top:calc(var(--cx-chrome-height) + 20px)}
 @media(max-width:380px){.hero-copy h1{font-size:42px}.scene-card h2{font-size:40px}.book-art span{font-size:20px}}
 h1,h2,h3{overflow-wrap:anywhere}
 @media(max-width:380px){.cx-profile-copy h3{font-size:28px}}
+
+/* Experience 2.1: provider owns its rendering; attribution is never cropped. */
+.cx-chrome .cx-pulse-static{grid-template-columns:auto 1fr auto;gap:4px 12px}
+.cx-pulse-sessions{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:12px;color:var(--muted);min-width:0}
+.cx-chrome .cx-pulse-static small{font-size:11px}
+.cx-provider{grid-column:1/-1;min-width:0;width:100%}
+.cx-provider[hidden]{display:none}
+.cx-provider iframe{display:block;width:100%;border:0}
+.tradingview-widget-copyright{font-size:13px;line-height:24px;text-align:center;color:var(--muted)}
+.cx-provider-links a{display:inline-block;padding:3px 5px}
+.cx-news button{margin-top:18px}
+.cx-contact{border-top:1px solid var(--border)}
+@media(max-width:760px){.cx-chrome .cx-pulse-static{grid-template-columns:1fr auto}.cx-pulse-sessions{font-size:11px;gap:3px 8px}.cx-chrome .cx-pulse-static small{font-size:10px}.cx-provider-links{line-height:1.6}}
+
+.cx-public-chrome{padding-inline:clamp(18px,4vw,64px)}
+.cx-public-chrome .cx-nav,.cx-public-chrome .cx-pulse{max-width:1280px;margin-inline:auto}
+@media(max-width:760px){.cx-pulse-static .cx-pulse-sessions{grid-column:1/-1}.cx-pulse-static .cx-pulse-toggle{grid-column:2;grid-row:2}.cx-chrome .cx-pulse-static>small:first-of-type{grid-column:1;grid-row:2}.cx-chrome .cx-pulse-static>small{line-height:1.4}.cx-pulse-sessions span{white-space:normal}}
