@@ -4,7 +4,7 @@ Official website for Cendavex Technologies
 October 12 brand release preserves the exact approved metallic-blue PNG and mission.
 Shared CSS/JS, product introductions, process demonstration, and official-source
 news snapshot accompany the responsive homepage and information pages. Headlines
-refresh on release and become visibly stale after 24 hours. No licensed quotes,
+refresh from the isolated official-feed cache every fifteen minutes and become visibly stale after 24 hours; a bundled snapshot remains available offline. No licensed quotes,
 commercial article bodies, music demos, backend code or credentials are published.
 
 Validated with Chromium at 1440, 820 and 390 widths (including links, news filters,
