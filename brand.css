@@ -54,3 +54,4 @@ html{scroll-padding-top:calc(var(--cx-chrome-height) + 20px)}
 /* Reserve the longest profile description at each width, including enlarged text. */
 .cx-profile-description{display:grid}.cx-profile-description>p{grid-area:1/1;min-width:0}.cx-profile-measure{visibility:hidden;pointer-events:none}
 @media(max-width:760px){.product-grid{grid-template-columns:minmax(0,1fr)}.product-card{min-width:0}.studio-art{gap:4px}.studio-art span{padding:12px 6px;font-size:9px}}
+@media(max-width:380px){.hero-copy h1{font-size:42px}.scene-card h2{font-size:40px}.book-art span{font-size:20px}}
