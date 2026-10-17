@@ -1,0 +1,132 @@
+{
+  "base": "https://cendavex.com",
+  "verifiedAt": "2026-10-17T17:46:44.128Z",
+  "files": [
+    {
+      "file": "assets/cendavex-mark-vision.webp",
+      "bytes": 3748,
+      "sha256": "4926b44d993dfd156fc20a484f6b92fbb581eaacbdc28d82b5cbd7f2a066db7c",
+      "contentType": "image/webp"
+    },
+    {
+      "file": "index.html",
+      "bytes": 11813,
+      "sha256": "cbe3edb79c7e60817a83133082368237de4851e74f9788867dd1061cff1d0da8",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "file": "vision/index.html",
+      "bytes": 6972,
+      "sha256": "6f8f26711412a21112ffa00022ef382b60b2daabad23e3ffad436178c7cd4fad",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "file": "vision/vision.css",
+      "bytes": 4021,
+      "sha256": "c3b932f8baf6c4df7517b690b2ea1a92fe93d77efa20ed123b52ebae82278f82",
+      "contentType": "text/css; charset=utf-8"
+    },
+    {
+      "file": "vision/vision.js",
+      "bytes": 2281,
+      "sha256": "a1e7fbbbd6e98a052bf062f582c74723904e9d7cd8adf682fd3543330d488158",
+      "contentType": "application/javascript; charset=utf-8"
+    },
+    {
+      "file": "vision/scenes.json",
+      "bytes": 1943,
+      "sha256": "99d200f244f16eda8df990ed2af71ca2c9a426c53a502d932612199d3d8f9a33",
+      "contentType": "application/json; charset=utf-8"
+    },
+    {
+      "file": "vision/presentation/index.html",
+      "bytes": 6427,
+      "sha256": "314d46455d40dfb1b0cf523f7bae5d77d144888532df9a3de34994cc3e289337",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "file": "vision/cue-sheet.md",
+      "bytes": 3601,
+      "sha256": "ff8474924b9c2030337ac9f815687a11e66132d2855e710869631de349b8a816",
+      "contentType": "text/markdown; charset=utf-8"
+    },
+    {
+      "file": "assets/vision-film.mp4",
+      "bytes": 11922897,
+      "sha256": "09051c86d7b2a75dfd1b2cad14891f6ace54ed04c7db0e04b506d95cf6432cb0",
+      "contentType": "video/mp4"
+    },
+    {
+      "file": "assets/vision-film.webm",
+      "bytes": 1153587,
+      "sha256": "460e1e7998013224b816a6f3fd4cc489fa46810ddcaf1952c2c8b12c9b866244",
+      "contentType": "video/webm"
+    },
+    {
+      "file": "assets/hero-loop.mp4",
+      "bytes": 1268967,
+      "sha256": "f47b9200ca86cea182cc94ae0cee78593f25f4712e5f7532b9e438c7c6481ab9",
+      "contentType": "video/mp4"
+    },
+    {
+      "file": "assets/hero-loop.webm",
+      "bytes": 92357,
+      "sha256": "1b235f9cd191724020557117ccca58f4a4d1c94c69969bb914d6ceaacee82d64",
+      "contentType": "video/webm"
+    },
+    {
+      "file": "assets/vision-film.vtt",
+      "bytes": 1608,
+      "sha256": "a9bc0585e2c908d3d139d8ebbd4da750e0ce25682d13e55ed5226a0c23a7a3f4",
+      "contentType": "text/vtt; charset=utf-8"
+    },
+    {
+      "file": "assets/vision-poster.webp",
+      "bytes": 40068,
+      "sha256": "a298470b25ceb8c7b25abc7b910a305bf5626ea41eabfdc3362398a32a0e801c",
+      "contentType": "image/webp"
+    },
+    {
+      "file": "assets/vision-poster-small.webp",
+      "bytes": 7710,
+      "sha256": "16eb3e1f83fffae7d22fb4a586eb07196ebf4f0434f68d6f819e01730a60cd58",
+      "contentType": "image/webp"
+    },
+    {
+      "file": "assets/hero-loop-poster.webp",
+      "bytes": 13880,
+      "sha256": "745aec6a49d108de3374d60fe8106ce104270476c5ad9e78fd2459ef53b10e96",
+      "contentType": "image/webp"
+    }
+  ],
+  "browsers": [
+    {
+      "name": "chromium",
+      "played": {
+        "time": 1.0392,
+        "width": 1280,
+        "duration": 84,
+        "captions": "showing",
+        "captionCueCount": 10
+      },
+      "presentation": "pass",
+      "mobile": "no overflow"
+    },
+    {
+      "name": "webkit",
+      "played": {
+        "time": 0.769388957,
+        "width": 1280,
+        "duration": 84,
+        "captions": "showing",
+        "captionCueCount": 10
+      },
+      "presentation": "pass",
+      "mobile": "no overflow"
+    }
+  ],
+  "range": {
+    "status": 206,
+    "contentRange": "bytes 0-1023/11922897"
+  }
+}

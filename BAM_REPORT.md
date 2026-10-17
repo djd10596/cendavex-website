@@ -28,7 +28,7 @@ Artwork: `assets/vision-poster.webp` (1280×720), `assets/vision-poster-small.we
 
 31 existing test cases have passing results across the initial run and necessary repaired-environment/isolated reruns. The first run passed 27 cases before the WebKit library setup failed. Correcting the documented host environment allowed the remaining dual-engine suites to run. A competing-browser timing failure was rerun in isolation and passed without changing its thresholds: Chromium 22.02fps / 17.86ms average render work; WebKit 12.10fps / 10.07ms. All 76 existing interior checks and 20 moving-scene browser/viewport combinations passed. Details: `docs/vision/regression-validation.json`.
 
-A live screening exposed WebKit disabling the default caption track. Playback now explicitly activates English captions once; a preview verified all ten cues in both engines.
+A live screening exposed WebKit disabling the default caption track. Playback now explicitly activates English captions once; a preview verified all ten cues in both engines. Subsequent public verification confirmed those cues loaded and captions visible in both engines.
 
 New experience checks passed in Chromium and WebKit at 1440, 390 and 320px: actual H.264 playback, seeking into the closing act, forced WebM playback, native poster/no-JavaScript fallback, transcript, media-error recovery, keyboard/button presentation navigation, and zero axe violations on both new pages. Every public HTML route (26 total) loaded successfully in both engines; 742 local link/asset references resolved. The homepage has no added video element and fits at 320px. Evidence: `docs/vision/validation.json` and desktop/mobile screenshots.
 
@@ -38,7 +38,17 @@ Local commands: `npm test`; affected suites via `bash scripts/vision-browser-env
 
 ## Publication
 
-Publication pending. No live URL is claimed until deployment byte hashes and browser delivery are verified.
+Confirmed live at 2026-10-17T17:46:44.128Z after normal, non-force pushes to `main`:
+
+- Film experience: https://cendavex.com/vision/
+- Founder presentation: https://cendavex.com/vision/presentation/
+- H.264 film: https://cendavex.com/assets/vision-film.mp4
+- Ambient loop: https://cendavex.com/assets/hero-loop.mp4
+- Cue sheet: https://cendavex.com/vision/cue-sheet.md
+
+All 16 checked deployed files match local SHA-256 hashes, including homepage, both routes, scripts, posters, captions and all MP4/WebM files. The public MP4 returned HTTP 206 for a byte-range request. Fresh Chromium and WebKit sessions played the public 84-second H.264 film at 1280×720 with English captions showing and all ten cues loaded. Both confirmed the public presentation controls and mobile layout. Full hashes, MIME types, playback values and verification time are in `docs/vision/live-validation.json`.
+
+Publication was confirmed for the experience source identified above. This final report-only commit adds evidence; it does not alter the verified pages or media.
 
 ## Remaining production limitations
 
