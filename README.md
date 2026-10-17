@@ -33,3 +33,5 @@ October 17 premium brand revision: shared CENDAVEX identity, approved emblem and
 company saying across every area. See [brand release notes](RELEASE-BRAND-20261017.md).
 Capture and check five-area navigation at desktop/tablet/mobile with
 `node scripts/verify-brand.cjs`; `BRAND_BASE=https://cendavex.com` checks live Pages.
+
+Experience 3.0 isolated candidate: see [implementation, preview, verification and app roadmap](EXPERIENCE-3.0.md). This candidate is committed locally for independent release review; it does not authorize publication or customer application changes.

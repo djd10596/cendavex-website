@@ -225,3 +225,80 @@ test('legacy homepage bookmarks resolve to Financial experiences', async () => {
   }
   await page.close();
 });
+
+test('Experience 3.0: simulations, motion, metadata, offline rendering and visual evidence', async () => {
+  const page = await browser.newPage();
+  const output = process.env.EXPERIENCE_EVIDENCE || '/tmp/cendavex-experience3';
+  fs.mkdirSync(output, {recursive:true});
+  await page.route('https://**/*', route => route.abort());
+  for (const area of ['', 'ai', 'financial', 'systems', 'industries']) {
+    const route = `/${area ? area+'/' : ''}`;
+    await page.goto(base+route);
+    const description = await page.locator('meta[name="description"]').getAttribute('content');
+    assert.ok(description.length > 60);
+    assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'), 'https://cendavex.com'+route);
+    assert.equal((await page.request.get(base+'/assets/experience-social.png')).status(),200);
+    const motion=page.getByRole('button',{name:'Pause experience motion',exact:true});
+    await motion.click();
+    assert.equal(await page.locator('html').evaluate(el=>el.classList.contains('cx3-paused')),true);
+    await page.getByRole('button',{name:'Resume experience motion',exact:true}).click();
+    assert.equal(await page.locator('html').evaluate(el=>el.classList.contains('cx3-paused')),false);
+    const result=page.locator('.cx3-result');
+    if(area === 'financial') {
+      await page.locator('#cx3-loss').fill('40');
+      await page.locator('#cx3-exposure').selectOption('0.75');
+      assert.match(await result.innerText(), /−30.0%/);
+      assert.match(await result.innerText(), /not a forecast/);
+    } else {
+      for(let i=0;i<3;i++) {
+        const button=page.locator(`[data-scenario="${i}"]`);
+        await button.focus();await page.keyboard.press('Enter');
+        assert.equal(await button.getAttribute('aria-pressed'),'true');
+        assert.equal(await page.locator('[data-scenario][aria-pressed="true"]').count(),1);
+        assert.ok((await result.innerText()).length>60);
+      }
+    }
+    if (area === 'ai') {
+      await page.locator('#cx3-task').fill('delete a customer account');
+      await page.getByRole('button', {name:'Evaluate local rules →'}).click();
+      assert.match(await page.locator('[data-policy-result]').innerText(), /REQUIRE AUTHORIZATION/);
+      await page.locator('#cx3-task').fill('analyze conflicting evidence');
+      await page.getByRole('button', {name:'Evaluate local rules →'}).click();
+      assert.match(await page.locator('[data-policy-result]').innerText(), /ESCALATE/);
+      await page.locator('#cx3-task').fill('summarize a public document');
+      await page.getByRole('button', {name:'Evaluate local rules →'}).click();
+      assert.match(await page.locator('[data-policy-result]').innerText(), /DRAFT FOR REVIEW/);
+    }
+    if (area === 'systems') {
+      await page.getByRole('button', {name:'Inject fault',exact:true}).click();
+      assert.match(await page.locator('[data-supervisor-state]').innerText(), /Degraded/);
+      const recover=page.getByRole('button', {name:'Attempt recovery',exact:true});
+      await recover.click();await recover.click();
+      assert.match(await page.locator('[data-supervisor-state]').innerText(), /Escalated · 2/);
+      assert.equal(await recover.isDisabled(),true);
+      await page.getByRole('button', {name:'Operator reset',exact:true}).click();
+      assert.match(await page.locator('[data-supervisor-state]').innerText(), /Observing · 0/);
+    }
+    await page.emulateMedia({reducedMotion:'reduce'});
+    assert.equal(await page.locator('.cx3-motion').isVisible(),false);
+    assert.equal(await page.locator('.cx3-vector').first().evaluate(el=>getComputedStyle(el).animationName),'none');
+    for(const width of [1440,768,390,320]) {
+      await page.setViewportSize({width,height:1000});
+      await page.goto(base+route);
+      assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+      await page.screenshot({path:path.join(output,`${area||'corporate'}-${width}.png`),fullPage:true});
+    }
+    await page.emulateMedia({reducedMotion:'no-preference'});
+  }
+  await page.close();
+  const noJS=await browser.newContext({javaScriptEnabled:false, viewport:{width:390,height:900}});
+  const fallback=await noJS.newPage();
+  await fallback.goto(base+'/ai/');
+  assert.ok(await fallback.locator('.division-menu nav').isVisible());
+  await fallback.locator('.division-menu summary').click();
+  assert.equal(await fallback.locator('.division-menu nav').isVisible(),false);
+  await fallback.locator('.division-menu summary').click();
+  assert.ok(await fallback.locator('.division-menu nav').isVisible());
+  assert.ok((await fallback.locator('.cx3-result').innerText()).includes('ASSIST'));
+  await noJS.close();
+});
