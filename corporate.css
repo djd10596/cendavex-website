@@ -526,3 +526,12 @@ summary:focus-visible {
     font-size: 17px;
   }
 }
+
+/* Retain the existing public Market Pulse within the Financial journey. */
+.financial-market-pulse {
+  position: relative;
+  top: auto;
+  z-index: auto;
+  padding: 0;
+  max-width: 100%;
+}

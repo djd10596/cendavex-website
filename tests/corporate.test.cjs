@@ -118,6 +118,11 @@ for (const file of pages) {
     );
     assert.equal(await page.locator('[style*="animation"]').count(), 0);
     if (file === "index.html") {
+      assert.equal(await page.getByRole("region", { name: "Market Pulse", exact: true }).count(), 1);
+      await page.getByLabel("Market availability and display status").click();
+      assert.equal(await page.locator(".cx-provider-links a").count(), 6);
+      assert.ok((await page.locator(".cx-pulse-info-panel").innerText()).includes("Moving quotes are off"));
+      await page.getByLabel("Market availability and display status").click();
       await page.locator('[data-demo="1"]').click();
       assert.equal(
         await page.locator("#demo-title").textContent(),

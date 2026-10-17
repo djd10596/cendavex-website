@@ -93,3 +93,29 @@ Initial runs encountered absent browser binaries/libraries and an axe context
 setup error; those QA setup issues were resolved. An added profile regression
 initially expected an incorrect label; corrected it to the existing actual
 `Aggressive` / `Conservative` labels. No existing valid test was weakened.
+
+## Integration preservation follow-up
+
+The separate integration review confirmed `11975c1` and its public-source parent
+`7a8e380` from actual Git history. Review found the original candidate omitted the
+homepage Market Pulse mount. This follow-up restores the existing widget within
+the Financial section with a local non-sticky wrapper; shared provider code, CSP,
+PNG, CNAME and existing Financial/news pages remain unchanged.
+
+Final follow-up browser run: four tests passed, zero failed, 16 viewport WCAG
+scans without reported violations, 30.27 seconds. Added checks confirm the Market
+Pulse region, six provider links and truthful reduced-motion/off status. External
+HTTPS is mocked. An initial new assertion expected a loading-state disclaimer
+while reduced motion correctly disabled the widget; corrected to require its
+actual truthful off-state. Desktop/mobile screenshots were retained in the
+engineering integration evidence and inspected. JavaScript syntax and source
+whitespace checks pass. This is local verification, not provider certification.
+
+**Not published.** Origin main still resolves to `7a8e380`; public homepage bytes
+match that revision. Unauthenticated Pages API returned 404, preventing current
+source branch/path/workflow and deployment identity verification. Existing README
+main/Pages instructions require current owner/configuration confirmation. Obtain
+that access and confirmation, independent acceptance of this follow-up, and a
+staging publication/rollback rehearsal before release. No Git push or application
+service change occurred. Follow-up worktree:
+`/home/djd10596/cendavex-corporate-release-review-20261017`.
