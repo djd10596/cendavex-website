@@ -1,6 +1,6 @@
 # BAM REPORT — THE AWAKENING
 
-Implementation commit: **`4ab1dbd0053b2e7dc584c156a9a2a40baedf87ae`**. This exact commit contains the finished source, playable media and local validation evidence. Later report-only commits record publication evidence without changing the experience.
+Implementation commit: **`a1e0f1517b3de3bcd29a20598f0fe354bcae69b2`**. This exact commit contains the finished source, playable media and local validation evidence. Later report-only commits record publication evidence without changing the experience.
 
 ## Delivered experience
 
@@ -27,6 +27,8 @@ Artwork: `assets/vision-poster.webp` (1280×720), `assets/vision-poster-small.we
 ## Validation
 
 31 existing test cases have passing results across the initial run and necessary repaired-environment/isolated reruns. The first run passed 27 cases before the WebKit library setup failed. Correcting the documented host environment allowed the remaining dual-engine suites to run. A competing-browser timing failure was rerun in isolation and passed without changing its thresholds: Chromium 22.02fps / 17.86ms average render work; WebKit 12.10fps / 10.07ms. All 76 existing interior checks and 20 moving-scene browser/viewport combinations passed. Details: `docs/vision/regression-validation.json`.
+
+A live screening exposed WebKit disabling the default caption track. Playback now explicitly activates English captions once; a preview verified all ten cues in both engines.
 
 New experience checks passed in Chromium and WebKit at 1440, 390 and 320px: actual H.264 playback, seeking into the closing act, forced WebM playback, native poster/no-JavaScript fallback, transcript, media-error recovery, keyboard/button presentation navigation, and zero axe violations on both new pages. Every public HTML route (26 total) loaded successfully in both engines; 742 local link/asset references resolved. The homepage has no added video element and fits at 320px. Evidence: `docs/vision/validation.json` and desktop/mobile screenshots.
 
