@@ -35,8 +35,8 @@ before(async () => {
           ? "application/javascript"
           : filename.endsWith(".css")
             ? "text/css"
-            : filename.endsWith(".png")
-              ? "image/png"
+            : (filename.endsWith(".png") || filename.endsWith(".webp"))
+              ? (filename.endsWith(".webp") ? "image/webp" : "image/png")
               : "text/html",
       );
       res.end(data);
@@ -193,10 +193,10 @@ for (const file of pages) {
     }
     if(file === 'index.html') {
       assert.equal(await page.locator('[data-investing], [data-market-pulse]').count(),0);
-      assert.equal(await page.locator('.orbit-core img').getAttribute('src'), '/assets/cendavex-logo.png');
-      assert.equal(await page.locator('.orbit-core strong').innerText(), 'CENDAVEX');
+      assert.equal(await page.locator('canvas[data-world=corporate]').count(), 1);
+      assert.equal(await page.locator('.cinema-environment.is-rendered').count(), 1);
       assert.equal(await page.locator('h1').innerText(), "The Future Doesn't Build Itself.\nWe Engineer What's Next.");
-      assert.equal(await page.locator('.engineering-orbit i').last().evaluate(el=>getComputedStyle(el).animationName), 'none');
+      assert.equal(await page.locator('.cinema-fallback').getAttribute('src'), '/assets/cinematic-corporate.webp');
     }
     assert.deepEqual(errors, []);
     if (process.env.SCREENSHOT_DIR) {
@@ -238,11 +238,11 @@ test('Experience 3.0: simulations, motion, metadata, offline rendering and visua
     assert.ok(description.length > 60);
     assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'), 'https://cendavex.com'+route);
     assert.equal((await page.request.get(base+'/assets/experience-social.png')).status(),200);
-    const motion=page.getByRole('button',{name:'Pause experience motion',exact:true});
+    const motion=page.getByRole('button',{name:'Pause scene',exact:true});
     await motion.click();
-    assert.equal(await page.locator('html').evaluate(el=>el.classList.contains('cx3-paused')),true);
-    await page.getByRole('button',{name:'Resume experience motion',exact:true}).click();
-    assert.equal(await page.locator('html').evaluate(el=>el.classList.contains('cx3-paused')),false);
+    assert.equal(await page.getByRole('button',{name:'Resume scene',exact:true}).getAttribute('aria-pressed'),'true');
+    await page.getByRole('button',{name:'Resume scene',exact:true}).click();
+    assert.equal(await page.getByRole('button',{name:'Pause scene',exact:true}).getAttribute('aria-pressed'),'false');
     const result=page.locator('.cx3-result');
     if(area === 'financial') {
       await page.locator('#cx3-loss').fill('40');
@@ -280,8 +280,10 @@ test('Experience 3.0: simulations, motion, metadata, offline rendering and visua
       assert.match(await page.locator('[data-supervisor-state]').innerText(), /Observing · 0/);
     }
     await page.emulateMedia({reducedMotion:'reduce'});
-    assert.equal(await page.locator('.cx3-motion').isVisible(),false);
-    assert.equal(await page.locator('.cx3-vector').first().evaluate(el=>getComputedStyle(el).animationName),'none');
+    assert.equal(await page.locator('.cinema-motion').isVisible(),false);
+    const still = await page.locator('canvas').evaluate(c=>c.toDataURL());
+    await page.waitForTimeout(120);
+    assert.equal(await page.locator('canvas').evaluate(c=>c.toDataURL()),still);
     for(const width of [1440,768,390,320]) {
       await page.setViewportSize({width,height:1000});
       await page.goto(base+route);

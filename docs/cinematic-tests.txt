@@ -1,0 +1,176 @@
+
+> test
+> node --test tests/*.test.cjs
+
+TAP version 13
+# Subtest: cinematic renderer: active, paused, reduced motion, offscreen, fallback and measured performance
+ok 1 - cinematic renderer: active, paused, reduced motion, offscreen, fallback and measured performance
+  ---
+  duration_ms: 24707.166415
+  type: 'test'
+  ...
+# Subtest: index.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 2 - index.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 9832.84841
+  type: 'test'
+  ...
+# Subtest: mission.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 3 - mission.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 5395.785095
+  type: 'test'
+  ...
+# Subtest: about.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 4 - about.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 6163.90936
+  type: 'test'
+  ...
+# Subtest: divisions.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 5 - divisions.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 5597.333252
+  type: 'test'
+  ...
+# Subtest: ai/index.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 6 - ai/index.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 6733.073624
+  type: 'test'
+  ...
+# Subtest: ai/products.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 7 - ai/products.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4683.984957
+  type: 'test'
+  ...
+# Subtest: ai/research.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 8 - ai/research.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4769.922341
+  type: 'test'
+  ...
+# Subtest: financial/academy.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 9 - financial/academy.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 5104.00103
+  type: 'test'
+  ...
+# Subtest: financial/index.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 10 - financial/index.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 7041.300865
+  type: 'test'
+  ...
+# Subtest: financial/investing.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 11 - financial/investing.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 5968.541556
+  type: 'test'
+  ...
+# Subtest: financial/products.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 12 - financial/products.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 5441.335982
+  type: 'test'
+  ...
+# Subtest: financial/trading.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 13 - financial/trading.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 5876.932423
+  type: 'test'
+  ...
+# Subtest: systems/index.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 14 - systems/index.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 7465.41604
+  type: 'test'
+  ...
+# Subtest: systems/reliability.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 15 - systems/reliability.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4694.624219
+  type: 'test'
+  ...
+# Subtest: systems/research.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 16 - systems/research.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4684.706791
+  type: 'test'
+  ...
+# Subtest: industries/index.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 17 - industries/index.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 6484.844708
+  type: 'test'
+  ...
+# Subtest: industries/markets.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 18 - industries/markets.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4281.611244
+  type: 'test'
+  ...
+# Subtest: industries/research.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 19 - industries/research.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4327.95008
+  type: 'test'
+  ...
+# Subtest: features.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 20 - features.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4836.433367
+  type: 'test'
+  ...
+# Subtest: how-it-works.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 21 - how-it-works.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4800.357383
+  type: 'test'
+  ...
+# Subtest: roadmap.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 22 - roadmap.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4969.382024
+  type: 'test'
+  ...
+# Subtest: brokerage-agnostic.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 23 - brokerage-agnostic.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 5244.175496
+  type: 'test'
+  ...
+# Subtest: for-traders.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 24 - for-traders.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4814.151927
+  type: 'test'
+  ...
+# Subtest: news.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 25 - news.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 5949.509754
+  type: 'test'
+  ...
+# Subtest: legacy homepage bookmarks resolve to Financial experiences
+ok 26 - legacy homepage bookmarks resolve to Financial experiences
+  ---
+  duration_ms: 972.300643
+  type: 'test'
+  ...
+# Subtest: Experience 3.0: simulations, motion, metadata, offline rendering and visual evidence
+ok 27 - Experience 3.0: simulations, motion, metadata, offline rendering and visual evidence
+  ---
+  duration_ms: 28229.5967
+  type: 'test'
+  ...
+1..27
+# tests 27
+# suites 0
+# pass 27
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 165685.553491

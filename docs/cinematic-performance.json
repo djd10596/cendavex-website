@@ -1,0 +1,82 @@
+{
+  "environment": "Local Chromium, 1440x900, external services blocked; lab measurements, not field Core Web Vitals",
+  "pages": [
+    {
+      "area": "corporate",
+      "fcp": 248,
+      "dom": 292.39999997615814,
+      "renderer": {
+        "frames": 31,
+        "totalMs": 198.39999985694885,
+        "maxMs": 189
+      },
+      "cls": 0.08483026740933643,
+      "longTasks": [
+        224,
+        63
+      ]
+    },
+    {
+      "area": "ai",
+      "fcp": 176,
+      "dom": 214.39999997615814,
+      "renderer": {
+        "frames": 32,
+        "totalMs": 146.30000042915344,
+        "maxMs": 138.79999995231628
+      },
+      "cls": 0.09307717255015434,
+      "longTasks": [
+        189,
+        74
+      ]
+    },
+    {
+      "area": "financial",
+      "fcp": 184,
+      "dom": 244.90000009536743,
+      "renderer": {
+        "frames": 30,
+        "totalMs": 123.700000166893,
+        "maxMs": 61.299999952316284
+      },
+      "cls": 0.03934398148148148,
+      "longTasks": [
+        64,
+        95,
+        80,
+        53
+      ]
+    },
+    {
+      "area": "systems",
+      "fcp": 208,
+      "dom": 168.10000002384186,
+      "renderer": {
+        "frames": 31,
+        "totalMs": 62.60000026226044,
+        "maxMs": 54.5
+      },
+      "cls": 0,
+      "longTasks": [
+        54,
+        86,
+        50
+      ]
+    },
+    {
+      "area": "industries",
+      "fcp": 212,
+      "dom": 284.1999999284744,
+      "renderer": {
+        "frames": 32,
+        "totalMs": 173.30000019073486,
+        "maxMs": 164.39999997615814
+      },
+      "cls": 0.09503732880015434,
+      "longTasks": [
+        211
+      ]
+    }
+  ]
+}
