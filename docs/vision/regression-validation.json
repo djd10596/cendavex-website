@@ -1,0 +1,32 @@
+{
+  "existingCasesWithPassingResults": 31,
+  "initialRun": {
+    "command": "npm test",
+    "passedCases": 27,
+    "interruptedAfter": "WebKit launch lacked the separately documented library environment"
+  },
+  "repairedEnvironmentReruns": {
+    "exhibit": "pass",
+    "motionVisual": "pass, 20 browser/viewport combinations",
+    "signature": "pass, 76 browser/viewport checks",
+    "motionControls": "pass in isolation"
+  },
+  "benchmarkScheduling": "A concurrent run measured 8.77fps below the existing threshold; the unchanged benchmark passed when isolated. Thresholds were not changed.",
+  "isolatedMotionControls": {
+    "realTimePerformance": [
+      {
+        "engine": "chromium",
+        "fps": 22.018513525894203,
+        "averageMs": 17.861224481037684
+      },
+      {
+        "engine": "webkit",
+        "fps": 12.102196324518154,
+        "averageMs": 10.074074074074074
+      }
+    ],
+    "visibility": "Synthetic document.hidden transitions; not physical Safari tab testing"
+  },
+  "newExperience": "See validation.json, loading-validation.json and media-validation.json",
+  "homepagePreservation": "Exact comparison: only the Vision Film navigation link differs from the approved homepage. Other existing HTML, CSS and JS are unchanged."
+}

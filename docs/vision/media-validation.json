@@ -1,0 +1,39 @@
+[
+  {
+    "file": "assets/vision-film.mp4",
+    "bytes": 11922897,
+    "duration": "00:01:24.00",
+    "video": "h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1280x720 [SAR 1:1 DAR 16:9], 1133 kb/s, 24 fps, 24 tbr, 12288 tbn (default)",
+    "fullDecode": "pass",
+    "audio": "none",
+    "faststart": true
+  },
+  {
+    "file": "assets/hero-loop.mp4",
+    "bytes": 1268967,
+    "duration": "00:00:08.00",
+    "video": "h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1280x720 [SAR 1:1 DAR 16:9], 1265 kb/s, 24 fps, 24 tbr, 12288 tbn (default)",
+    "fullDecode": "pass",
+    "audio": "none",
+    "faststart": true
+  },
+  {
+    "file": "assets/vision-film.webm",
+    "bytes": 1153587,
+    "duration": "00:01:24.00",
+    "video": "vp9 (Profile 0), yuv420p(tv, progressive), 640x360, SAR 1:1 DAR 16:9, 24 fps, 24 tbr, 1k tbn (default)",
+    "fullDecode": "pass",
+    "audio": "none"
+  },
+  {
+    "file": "assets/hero-loop.webm",
+    "bytes": 92357,
+    "duration": "00:00:08.00",
+    "video": "vp9 (Profile 0), yuv420p(tv, progressive), 640x360, SAR 1:1 DAR 16:9, 24 fps, 24 tbr, 1k tbn (default)",
+    "fullDecode": "pass",
+    "audio": "none"
+  },
+  {
+    "loopEndpointMeanPixelDifferenceOutOf255": 0.14145833333333332
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "engine": "chromium",
+    "width": 1440,
+    "fcp": 244,
+    "initialTransferBytes": 67265,
+    "videoRequestsBeforeIntent": 0
+  },
+  {
+    "engine": "chromium",
+    "width": 390,
+    "fcp": 140,
+    "initialTransferBytes": 75275,
+    "videoRequestsBeforeIntent": 0
+  },
+  {
+    "engine": "chromium",
+    "width": 320,
+    "fcp": 128,
+    "initialTransferBytes": 75275,
+    "videoRequestsBeforeIntent": 0
+  },
+  {
+    "engine": "webkit",
+    "width": 1440,
+    "fcp": 232,
+    "initialTransferBytes": 65357,
+    "videoRequestsBeforeIntent": 0
+  },
+  {
+    "engine": "webkit",
+    "width": 390,
+    "fcp": 277,
+    "initialTransferBytes": 73367,
+    "videoRequestsBeforeIntent": 0
+  },
+  {
+    "engine": "webkit",
+    "width": 320,
+    "fcp": 239,
+    "initialTransferBytes": 73367,
+    "videoRequestsBeforeIntent": 0
+  }
+]

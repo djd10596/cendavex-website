@@ -41,3 +41,5 @@ across all 19 interior routes, with original division-specific vector environmen
 local explanatory interactions and motion/accessibility controls. See
 [signature release notes](RELEASE-SIGNATURE-20261017.md) for exact routes, the
 Chromium/WebKit host setup, tests, verification and rollback procedure.
+
+The Awakening adds `/vision/` and `/vision/presentation/` without replacing the homepage. Media is silent and loads only on user intent. Rebuild the public text/storyboard with `python3 scripts/build-vision.py`; render original 1280×720, 24fps H.264/WebM media with `node scripts/render-vision.cjs` (requires `python3 -m pip install --target node_modules/.vision-python imageio-ffmpeg`, Playwright Chromium and the documented browser libraries). For this Ubuntu host, run `bash scripts/setup-vision-media.sh` once for local WebKit codecs, then `bash scripts/vision-browser-env.sh node scripts/verify-vision.cjs` for Chromium/WebKit playback, accessibility, route, responsive and fallback checks. See `vision/cue-sheet.md` for the exact optional guitar soundtrack/voiceover plan; no audio license or recording is supplied or implied.

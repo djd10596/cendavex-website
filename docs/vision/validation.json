@@ -1,0 +1,132 @@
+[
+  {
+    "engine": "chromium",
+    "width": 1440,
+    "playback": {
+      "time": 0.7311,
+      "duration": 84,
+      "width": 1280,
+      "source": "http://127.0.0.1:44671/assets/vision-film.mp4"
+    },
+    "perf": {
+      "fcp": 240,
+      "transferBytes": 1521898
+    },
+    "accessibility": "axe: zero violations",
+    "responsive": "no overflow",
+    "deck": "buttons and keyboard pass",
+    "preload": "zero media requests before intent"
+  },
+  {
+    "engine": "chromium",
+    "width": 390,
+    "playback": {
+      "time": 0.7201,
+      "duration": 84,
+      "width": 1280,
+      "source": "http://127.0.0.1:44671/assets/vision-film.mp4"
+    },
+    "perf": {
+      "fcp": 108,
+      "transferBytes": 1529908
+    },
+    "accessibility": "axe: zero violations",
+    "responsive": "no overflow",
+    "deck": "buttons and keyboard pass",
+    "preload": "zero media requests before intent"
+  },
+  {
+    "engine": "chromium",
+    "width": 320,
+    "playback": {
+      "time": 0.7282,
+      "duration": 84,
+      "width": 1280,
+      "source": "http://127.0.0.1:44671/assets/vision-film.mp4"
+    },
+    "perf": {
+      "fcp": 200,
+      "transferBytes": 1529908
+    },
+    "accessibility": "axe: zero violations",
+    "responsive": "no overflow",
+    "deck": "buttons and keyboard pass",
+    "preload": "zero media requests before intent"
+  },
+  {
+    "engine": "chromium",
+    "browsedRoutes": 26,
+    "webm": {
+      "time": 0.3572,
+      "width": 640
+    },
+    "fallback": "no-JS poster, transcript and media-error recovery pass"
+  },
+  {
+    "engine": "webkit",
+    "width": 1440,
+    "playback": {
+      "time": 0.500961973,
+      "duration": 84,
+      "width": 1280,
+      "source": "http://127.0.0.1:44671/assets/vision-film.mp4"
+    },
+    "perf": {
+      "fcp": 280,
+      "transferBytes": 1520190
+    },
+    "accessibility": "axe: zero violations",
+    "responsive": "no overflow",
+    "deck": "buttons and keyboard pass",
+    "preload": "zero media requests before intent"
+  },
+  {
+    "engine": "webkit",
+    "width": 390,
+    "playback": {
+      "time": 0.504366122,
+      "duration": 84,
+      "width": 1280,
+      "source": "http://127.0.0.1:44671/assets/vision-film.mp4"
+    },
+    "perf": {
+      "fcp": 382,
+      "transferBytes": 1528200
+    },
+    "accessibility": "axe: zero violations",
+    "responsive": "no overflow",
+    "deck": "buttons and keyboard pass",
+    "preload": "zero media requests before intent"
+  },
+  {
+    "engine": "webkit",
+    "width": 320,
+    "playback": {
+      "time": 0.501188911,
+      "duration": 84,
+      "width": 1280,
+      "source": "http://127.0.0.1:44671/assets/vision-film.mp4"
+    },
+    "perf": {
+      "fcp": 368,
+      "transferBytes": 1528200
+    },
+    "accessibility": "axe: zero violations",
+    "responsive": "no overflow",
+    "deck": "buttons and keyboard pass",
+    "preload": "zero media requests before intent"
+  },
+  {
+    "engine": "webkit",
+    "browsedRoutes": 26,
+    "webm": {
+      "time": 0.251079516,
+      "width": 640
+    },
+    "fallback": "no-JS poster, transcript and media-error recovery pass"
+  },
+  {
+    "publicRoutes": 26,
+    "localLinksAndAssets": 742
+  }
+]
