@@ -28,3 +28,8 @@ are on Financial subpages. Existing HTML routes and original homepage Financial
 bookmarks remain supported. See [release notes](RELEASE-DIVISIONS-20261017.md).
 Run the existing browser suite with `npm test`; this host uses the established
 `LD_LIBRARY_PATH=/tmp/cendavex-browser-libs/root/usr/lib/x86_64-linux-gnu` setup.
+
+October 17 premium brand revision: shared CENDAVEX identity, approved emblem and
+company saying across every area. See [brand release notes](RELEASE-BRAND-20261017.md).
+Capture and check five-area navigation at desktop/tablet/mobile with
+`node scripts/verify-brand.cjs`; `BRAND_BASE=https://cendavex.com` checks live Pages.

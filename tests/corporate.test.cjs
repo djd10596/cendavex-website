@@ -70,6 +70,16 @@ for (const file of pages) {
       await page.setViewportSize({ width, height: 900 });
       await page.goto(`${base}/${file}`);
       assert.equal(await page.locator("h1").count(), 1);
+      const identity = page.locator('.brand-lockup');
+      assert.equal(await identity.locator('.brand-name').innerText(), 'CENDAVEX');
+      const division = file.startsWith('ai/') ? 'AI' : file.startsWith('systems/') ? 'SYSTEMS' : file.startsWith('industries/') ? 'INDUSTRIES' : file.startsWith('financial/') || ['features.html','how-it-works.html','roadmap.html','brokerage-agnostic.html','for-traders.html','news.html'].includes(file) ? 'FINANCIAL' : 'TECHNOLOGIES';
+      assert.equal(await identity.locator('.brand-subtitle').innerText(), division);
+      assert.equal(await identity.locator('img').getAttribute('src'), '/assets/cendavex-logo.png');
+      assert.ok(await identity.locator('.brand-name').evaluate(el => parseFloat(getComputedStyle(el).fontSize) >= 25));
+      assert.ok(await identity.locator('img').evaluate(el => el.clientWidth >= 72 && el.clientWidth === el.clientHeight));
+      assert.equal(await page.locator('.footer-brand-saying').innerText(), 'CENDAVEX — Intelligence That Never Stops Evolving.');
+      assert.ok(await identity.evaluate(el => el.scrollWidth <= el.clientWidth));
+      if(width <= 760) assert.ok(await page.locator('.brand-bar').evaluate(el => el.getBoundingClientRect().height < 220));
       assert.ok(
         await page.evaluate(
           () => document.documentElement.scrollWidth <= innerWidth,
@@ -183,13 +193,15 @@ for (const file of pages) {
     }
     if(file === 'index.html') {
       assert.equal(await page.locator('[data-investing], [data-market-pulse]').count(),0);
+      assert.equal(await page.locator('.orbit-core img').getAttribute('src'), '/assets/cendavex-logo.png');
+      assert.equal(await page.locator('.orbit-core strong').innerText(), 'CENDAVEX');
       assert.equal(await page.locator('h1').innerText(), "The Future Doesn't Build Itself.\nWe Engineer What's Next.");
       assert.equal(await page.locator('.engineering-orbit i').last().evaluate(el=>getComputedStyle(el).animationName), 'none');
     }
     assert.deepEqual(errors, []);
     if (process.env.SCREENSHOT_DIR) {
       fs.mkdirSync(process.env.SCREENSHOT_DIR, { recursive: true });
-      for (const width of [1440, 390]) {
+      for (const width of [1440, 768, 390]) {
         await page.setViewportSize({ width, height: 1000 });
         await page
           .locator(":focus")

@@ -1,3 +1,49 @@
 .brand-bar{flex-wrap:wrap;gap:18px;align-items:center}.division-menu{width:100%;min-width:0}.division-menu>summary,.division-switcher>summary{cursor:pointer;color:#d4e7ff;padding:12px;border:1px solid #45668b;border-radius:8px;font-weight:600}.division-switcher{margin-left:auto;position:relative}.division-switcher nav{position:absolute;right:0;top:100%;z-index:50;width:260px;max-width:80vw;display:grid;background:#0b1628;border:1px solid #45668b;border-radius:8px;padding:12px}.division-switcher a{padding:10px;color:#d4e7ff}.division-menu .nav-links{justify-content:flex-start;max-width:100%;padding:14px 0;gap:12px 22px;flex-wrap:wrap}.parent-return{color:#b9d7ff;font-size:14px}.section .intro{max-width:850px}.page-hero h1{overflow-wrap:anywhere}a:focus-visible,summary:focus-visible{outline:3px solid #8fcbff;outline-offset:5px}.section a{color:#badbff;text-decoration:underline;text-underline-offset:4px}@media(min-width:761px){.division-menu>summary{display:none}}@media(max-width:760px){.brand-bar{padding-block:18px}.division-switcher{margin-left:0}.division-menu .nav-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-height:none}.division-menu .nav-links a{white-space:normal}.brand-lockup{max-width:100%}.division-switcher nav{left:0;right:auto}.parent-return{width:100%}}
 /* Multiline corporate headline keeps every glyph visible across inline fragments. */
 body .hero-copy h1 span{background:none;color:var(--blue)}
+
+/* Shared parent identity: the approved emblem remains unmodified. */
+.brand-bar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 32px;padding:26px 0 0;align-items:center;background:radial-gradient(ellipse at 18% 0,#24558726,transparent 65%)}
+.brand-lockup{min-width:0;max-width:100%;gap:22px;justify-self:start}
+.brand-lockup img{display:block;width:112px;height:112px;flex:none;object-fit:contain;filter:drop-shadow(0 8px 24px #5cafff22)}
+.brand-name{font-size:clamp(32px,3.4vw,49px);font-weight:800;letter-spacing:.13em;line-height:1.12;color:#d3e8ff;text-shadow:0 2px 24px #72b7ff25}
+.brand-subtitle{font-size:13px;font-weight:650;letter-spacing:.38em;line-height:1.8;color:#a9cfff;margin-top:7px}
+.brand-saying{display:block;font-size:12px;font-weight:400;letter-spacing:.025em;color:#b8c9e0;margin-top:10px;line-height:1.5}
+.division-switcher{margin:0;justify-self:end;font-size:12px}
+.division-switcher>summary{padding:12px 16px;background:#0d1c30}
+.division-menu{grid-column:1/-1;border-top:1px solid #344d6c;margin-top:24px}
+.division-menu .nav-links{gap:8px 24px;padding:12px 0;align-items:center;font-size:13px}
+.division-menu .nav-links a{padding:10px 0;min-height:44px;display:inline-flex;align-items:center}
+.division-menu .nav-cta{padding:10px 16px!important;border:1px solid #7db5ed;border-radius:4px}
+.parent-return{grid-column:1/-1;font-size:12px;padding:0 0 14px;justify-self:start}
+.footer-brand-saying{flex-basis:100%;margin:0 0 8px;color:#c8def6;font-size:clamp(14px,1.4vw,18px);line-height:1.65;letter-spacing:.01em}
+.footer-brand-saying strong{font-weight:800;letter-spacing:.12em}
+.orbit-core{width:100%;background:none;color:#d3e8ff;font-size:clamp(23px,2.5vw,36px);text-shadow:none;z-index:1}
+.orbit-core img{display:block;width:72%;max-width:280px;height:auto;aspect-ratio:1;object-fit:contain;margin:0 auto 20px;filter:drop-shadow(0 12px 36px #4b9aff33)}
+.orbit-core strong{display:block;letter-spacing:.12em;font-weight:800}
+.orbit-core span{font-size:11px;letter-spacing:.38em;margin-top:14px}
+@media(min-width:761px) and (max-width:1100px){.brand-name{font-size:36px}.brand-lockup img{width:96px;height:96px}.brand-lockup{gap:18px}.brand-saying{font-size:11px}}
+@media(max-width:1000px) and (min-width:601px){.engineering-orbit{position:relative;width:100%;max-width:370px;opacity:1;margin:20px auto 0}.hero{gap:24px}.orbit-core{font-size:30px}}
+@media(max-width:760px){
+ .brand-bar{grid-template-columns:minmax(0,1fr) auto;gap:14px 10px;padding:16px 0}
+ .brand-lockup{grid-column:1/-1;gap:14px}
+ .brand-lockup img{width:72px;height:72px}
+ .brand-name{font-size:clamp(25px,6.3vw,38px);letter-spacing:.1em}
+ .brand-subtitle{font-size:11px;letter-spacing:.32em;margin-top:5px}
+ .brand-saying{display:none}
+ .division-menu{grid-column:1;grid-row:2;margin:0;border:0}
+ .division-switcher{grid-column:2;grid-row:2;align-self:start;font-size:11px}
+ .division-menu>summary,.division-switcher>summary{padding:11px 10px;font-size:11px;min-height:44px;white-space:nowrap}
+ .division-menu[open]{grid-column:1/-1;padding-top:58px;position:relative}
+ .division-menu[open]>summary{position:absolute;top:0;left:0}
+ .division-switcher{z-index:2}
+ .division-switcher nav{left:auto;right:0}
+ .division-menu .nav-links{font-size:12px;gap:8px 16px;padding:8px 0 0}
+ .parent-return{padding:0;font-size:11px}
+ .footer-brand-saying{margin-bottom:8px}
+}
+@media(forced-colors:active){.brand-name{color:CanvasText}}
+/* Legacy Financial routes share the same centered identity and footer treatment. */
+body>.brand-bar{width:min(1296px,90%);margin-inline:auto}
+.site-footer>.footer-brand-saying{grid-column:1/-1}
+@media(max-width:600px){body>.brand-bar{width:88%}}
