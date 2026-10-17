@@ -67,7 +67,7 @@ function pulse(){document.querySelectorAll('[data-market-pulse]').forEach(root=>
   toggle.disabled=reduced.matches||document.documentElement.classList.contains('cx-motion-paused');reload.disabled=toggle.disabled;toggle.textContent=off?'Show quotes':'Hide quotes';toggle.setAttribute('aria-label',off?'Show moving quotes':'Hide moving quotes');toggle.setAttribute('aria-expanded',String(!off));
   root.dataset.providerState=off?'off':'loading';status.textContent=off?'Moving quotes are off. Open the market links for provider quotes.':'Loading TradingView.';if(!off)show();
  }
- toggle.addEventListener('click',()=>{hidden=retry?false:!hidden;try{localStorage.setItem('cendavexQuotesHidden',String(hidden));}catch(_){}apply(true);});reduced.addEventListener('change',()=>apply());
+ toggle.addEventListener('click',()=>{hidden=retry?false:!hidden;try{localStorage.setItem('cendavexQuotesHidden',String(hidden));}catch(_){}apply(true);});const motionPreferenceChanged=()=>apply();if(reduced.addEventListener)reduced.addEventListener('change',motionPreferenceChanged);else reduced.addListener(motionPreferenceChanged);
  // Only an actual motion preference transition resets the widget, never unrelated classes.
  new MutationObserver(()=>apply()).observe(document.documentElement,{attributes:true,attributeFilter:['class']});apply();
  });}
@@ -178,7 +178,7 @@ document.querySelectorAll('[data-investing]').forEach(root=>{
 });
 const footer=document.querySelector('.site-footer,.cx-foot');
 if(footer){if(!footer.querySelector('a[href=\"mailto:info@cendavex.com\"]')){const contact=document.createElement('a');contact.href='mailto:info@cendavex.com';contact.textContent='info@cendavex.com';footer.append(contact);}const toggle=document.createElement('button');toggle.type='button';toggle.className='cx-pulse-toggle';let paused=false;try{paused=localStorage.getItem('cendavexMotionPaused')==='true';}catch(_){}
- function apply(){document.documentElement.classList.toggle('cx-motion-paused',paused);toggle.disabled=reduced.matches;toggle.textContent=reduced.matches?'Reduced motion enabled':paused?'Resume visual motion':'Pause visual motion';toggle.setAttribute('aria-pressed',String(paused||reduced.matches));}toggle.addEventListener('click',()=>{paused=!paused;apply();try{localStorage.setItem('cendavexMotionPaused',String(paused));}catch(_){}});footer.append(toggle);apply();reduced.addEventListener('change',apply);}
+ function apply(){document.documentElement.classList.toggle('cx-motion-paused',paused);toggle.disabled=reduced.matches&&!paused;toggle.textContent=paused?'Resume visual motion':reduced.matches?'Reduced motion enabled':'Pause visual motion';toggle.setAttribute('aria-pressed',String(paused||reduced.matches));}toggle.addEventListener('click',()=>{paused=!paused;apply();try{localStorage.setItem('cendavexMotionPaused',String(paused));}catch(_){}});footer.append(toggle);apply();if(reduced.addEventListener)reduced.addEventListener('change',apply);else reduced.addListener(apply);}
 const targets=document.querySelectorAll('.section-title,.product-card,.mission-banner,.conviction-grid,.demo,.swing-art,.cx-boundary-chart,.academy-grid article');
 document.querySelectorAll('.product-card').forEach((e,i)=>e.style.setProperty('--cx-stagger',i*90+'ms'));
 function choreography(e){if(e.matches('.section-title'))e.classList.add('cx-title');if(e.matches('.demo,.mission-banner'))e.classList.add('cx-depth');e.classList.add('cx-motion-enter');}

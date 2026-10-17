@@ -1,0 +1,32 @@
+{
+  "testedAt": "2026-10-17T14:33:09.393Z",
+  "baselineRevision": "4f5fe77df736af0f5b524427c7a1cab852f5ba9b",
+  "testCommand": "npm test",
+  "passed": 29,
+  "failed": 0,
+  "visualCases": 20,
+  "playwrightVersion": "1.64.1",
+  "ranges": {
+    "motion": {
+      "min": 22.86611111111111,
+      "max": 51.85
+    },
+    "resume": {
+      "min": 25.29277777777778,
+      "max": 65.79791666666667
+    },
+    "pointerDelta": {
+      "min": 20.037222222222223,
+      "max": 40.80625
+    },
+    "scrollDelta": {
+      "min": 31.014583333333334,
+      "max": 50.53125
+    }
+  },
+  "runtimeSha256": {
+    "cinematic.js": "0dfb876f0955317c25fbbe5e991375ea4bd509fe72ee9351d648a63494da65c3",
+    "cinematic.css": "adcf63d79c11afdc6cae4565815d2700d629a64f691575e4c26832c09a1a4733",
+    "brand.js": "e57a26d3ec9ce3465b5ad649d64c414ba535dfb2892cbf2e42e67b725b5d0fbf"
+  }
+}

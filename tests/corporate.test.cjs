@@ -280,7 +280,7 @@ test('Experience 3.0: simulations, motion, metadata, offline rendering and visua
       assert.match(await page.locator('[data-supervisor-state]').innerText(), /Observing · 0/);
     }
     await page.emulateMedia({reducedMotion:'reduce'});
-    assert.equal(await page.locator('.cinema-motion').isVisible(),false);
+    await page.getByRole('button',{name:'Enable scene motion',exact:true}).waitFor({state:'visible'});
     const still = await page.locator('canvas').evaluate(c=>c.toDataURL());
     await page.waitForTimeout(120);
     assert.equal(await page.locator('canvas').evaluate(c=>c.toDataURL()),still);

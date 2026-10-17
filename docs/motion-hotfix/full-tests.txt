@@ -1,0 +1,215 @@
+
+> test
+> node --test --test-concurrency=1 tests/*.test.cjs
+
+TAP version 13
+# Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+# Subtest: cinematic renderer: active, paused, reduced motion, offscreen, fallback and measured performance
+ok 1 - cinematic renderer: active, paused, reduced motion, offscreen, fallback and measured performance
+  ---
+  duration_ms: 20404.252223
+  type: 'test'
+  ...
+# Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+# Subtest: index.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 2 - index.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 7501.886908
+  type: 'test'
+  ...
+# Subtest: mission.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 3 - mission.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4626.880385
+  type: 'test'
+  ...
+# Subtest: about.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 4 - about.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4734.255084
+  type: 'test'
+  ...
+# Subtest: divisions.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 5 - divisions.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4697.635337
+  type: 'test'
+  ...
+# Subtest: ai/index.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 6 - ai/index.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 6747.713021
+  type: 'test'
+  ...
+# Subtest: ai/products.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 7 - ai/products.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4516.912224
+  type: 'test'
+  ...
+# Subtest: ai/research.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 8 - ai/research.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4349.601093
+  type: 'test'
+  ...
+# Subtest: financial/academy.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 9 - financial/academy.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 5095.131622
+  type: 'test'
+  ...
+# Subtest: financial/index.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 10 - financial/index.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 7112.408699
+  type: 'test'
+  ...
+# Subtest: financial/investing.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 11 - financial/investing.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 6023.256898
+  type: 'test'
+  ...
+# Subtest: financial/products.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 12 - financial/products.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 5255.878033
+  type: 'test'
+  ...
+# Subtest: financial/trading.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 13 - financial/trading.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4926.792011
+  type: 'test'
+  ...
+# Subtest: systems/index.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 14 - systems/index.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 6017.490784
+  type: 'test'
+  ...
+# Subtest: systems/reliability.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 15 - systems/reliability.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4400.126724
+  type: 'test'
+  ...
+# Subtest: systems/research.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 16 - systems/research.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4466.664367
+  type: 'test'
+  ...
+# Subtest: industries/index.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 17 - industries/index.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 6501.269005
+  type: 'test'
+  ...
+# Subtest: industries/markets.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 18 - industries/markets.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4431.607738
+  type: 'test'
+  ...
+# Subtest: industries/research.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 19 - industries/research.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4714.215309
+  type: 'test'
+  ...
+# Subtest: features.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 20 - features.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4917.45172
+  type: 'test'
+  ...
+# Subtest: how-it-works.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 21 - how-it-works.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4981.120446
+  type: 'test'
+  ...
+# Subtest: roadmap.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 22 - roadmap.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4982.012497
+  type: 'test'
+  ...
+# Subtest: brokerage-agnostic.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 23 - brokerage-agnostic.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4851.7144
+  type: 'test'
+  ...
+# Subtest: for-traders.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 24 - for-traders.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 4783.240993
+  type: 'test'
+  ...
+# Subtest: news.html: desktop/mobile layout, local links, content, keyboard and WCAG
+ok 25 - news.html: desktop/mobile layout, local links, content, keyboard and WCAG
+  ---
+  duration_ms: 6004.003477
+  type: 'test'
+  ...
+# Subtest: legacy homepage bookmarks resolve to Financial experiences
+ok 26 - legacy homepage bookmarks resolve to Financial experiences
+  ---
+  duration_ms: 1293.397721
+  type: 'test'
+  ...
+# Subtest: Experience 3.0: simulations, motion, metadata, offline rendering and visual evidence
+ok 27 - Experience 3.0: simulations, motion, metadata, offline rendering and visual evidence
+  ---
+  duration_ms: 26236.879629
+  type: 'test'
+  ...
+# Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+# Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+# {"realTimePerformance":[{"engine":"chromium","fps":22.055182968707527,"averageMs":6.197959189512292},{"engine":"webkit","fps":11.205737337516808,"averageMs":11.08}]}
+# Subtest: motion controls: initial reduced preference, global preference, visibility, storage denial and frame budget
+ok 28 - motion controls: initial reduced preference, global preference, visibility, storage denial and frame budget
+  ---
+  duration_ms: 26415.731835
+  type: 'test'
+  ...
+# Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+# chromium-desktop-corporate {"label":"chromium-desktop-corporate","motion":{"changedPercent":48.144444444444446,"meanDelta":25.60954999999839},"resume":{"changedPercent":54.696666666666665,"meanDelta":27.01283888888956},"pointerDelta":{"changedPercent":38.53611111111111,"meanDelta":18.204744444445172},"scrollDelta":{"changedPercent":47.67166666666667,"meanDelta":23.293898148149207},"realTimePerformance":{"fps":21.811649986724806,"averageMs":6.529411762368445,"detail":"light"}}
+# chromium-desktop-ai {"label":"chromium-desktop-ai","motion":{"changedPercent":31.49277777777778,"meanDelta":14.11649814814808},"resume":{"changedPercent":33.276666666666664,"meanDelta":14.554255555555633},"pointerDelta":{"changedPercent":29.445,"meanDelta":13.649477777778285},"scrollDelta":{"changedPercent":33.64555555555555,"meanDelta":16.472550000000464},"realTimePerformance":{"fps":22.405411118156838,"averageMs":10.371698107359544,"detail":"full"}}
+# chromium-desktop-financial {"label":"chromium-desktop-financial","motion":{"changedPercent":46.36333333333334,"meanDelta":27.78220185185198},"resume":{"changedPercent":48.775555555555556,"meanDelta":25.296494444444562},"pointerDelta":{"changedPercent":23.986666666666668,"meanDelta":16.883299999999434},"scrollDelta":{"changedPercent":44.64944444444444,"meanDelta":33.72802962962342},"realTimePerformance":{"fps":22.683357137764954,"averageMs":16.56111111464324,"detail":"full"}}
+# chromium-desktop-systems {"label":"chromium-desktop-systems","motion":{"changedPercent":33.67944444444444,"meanDelta":17.727564814815107},"resume":{"changedPercent":41.87833333333333,"meanDelta":19.538287037037797},"pointerDelta":{"changedPercent":25.416666666666668,"meanDelta":15.491079629632267},"scrollDelta":{"changedPercent":32.42166666666667,"meanDelta":19.12562777777603},"realTimePerformance":{"fps":22.3051516325928,"averageMs":8.030769238105187,"detail":"full"}}
+# chromium-desktop-industries {"label":"chromium-desktop-industries","motion":{"changedPercent":37.95055555555555,"meanDelta":22.681748148147864},"resume":{"changedPercent":38.422777777777775,"meanDelta":24.039701851851742},"pointerDelta":{"changedPercent":34.21944444444444,"meanDelta":17.500985185186266},"scrollDelta":{"changedPercent":38.257777777777775,"meanDelta":22.23059814814879},"realTimePerformance":{"fps":22.154999787871358,"averageMs":13.6538461630161,"detail":"full"}}
+# chromium-mobile-corporate {"label":"chromium-mobile-corporate","motion":{"changedPercent":46.88125,"meanDelta":21.22889583333326},"resume":{"changedPercent":53.2,"meanDelta":23.743548611111017},"pointerDelta":{"changedPercent":40.635416666666664,"meanDelta":19.873215277777994},"scrollDelta":{"changedPercent":50.53125,"meanDelta":24.764041666666788},"realTimePerformance":{"fps":20.194038368884264,"averageMs":12.530434787273407,"detail":"full"}}
+# chromium-mobile-ai {"label":"chromium-mobile-ai","motion":{"changedPercent":25.864583333333332,"meanDelta":13.217993055555606},"resume":{"changedPercent":28.8875,"meanDelta":14.611861111111178},"pointerDelta":{"changedPercent":25.604166666666668,"meanDelta":12.865833333333484},"scrollDelta":{"changedPercent":31.014583333333334,"meanDelta":16.463131944445},"realTimePerformance":{"fps":19.695378151671544,"averageMs":6.768888884120518,"detail":"full"}}
+# chromium-mobile-financial {"label":"chromium-mobile-financial","motion":{"changedPercent":49.395833333333336,"meanDelta":30.943951388889307},"resume":{"changedPercent":65.79791666666667,"meanDelta":34.06329166666653},"pointerDelta":{"changedPercent":33.3375,"meanDelta":21.483319444444987},"scrollDelta":{"changedPercent":50.35625,"meanDelta":34.934076388888585},"realTimePerformance":{"fps":20.142750799772614,"averageMs":13.097826107688572,"detail":"full"}}
+# chromium-mobile-systems {"label":"chromium-mobile-systems","motion":{"changedPercent":38.297916666666666,"meanDelta":18.15556944444483},"resume":{"changedPercent":46.06041666666667,"meanDelta":20.87165277777796},"pointerDelta":{"changedPercent":30.202083333333334,"meanDelta":16.92638194444482},"scrollDelta":{"changedPercent":36.72291666666667,"meanDelta":20.275041666669928},"realTimePerformance":{"fps":20.20290746105376,"averageMs":5.204347833343174,"detail":"full"}}
+# chromium-mobile-industries {"label":"chromium-mobile-industries","motion":{"changedPercent":35.391666666666666,"meanDelta":17.30056944444442},"resume":{"changedPercent":37.25416666666667,"meanDelta":18.005298611111275},"pointerDelta":{"changedPercent":34.577083333333334,"meanDelta":16.067402777778167},"scrollDelta":{"changedPercent":40.989583333333336,"meanDelta":21.397784722222763},"realTimePerformance":{"fps":20.178093608386117,"averageMs":9.36086958128473,"detail":"full"}}
+# Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+# webkit-desktop-corporate {"label":"webkit-desktop-corporate","motion":{"changedPercent":45.18833333333333,"meanDelta":24.294668518519185},"resume":{"changedPercent":54.541666666666664,"meanDelta":26.010033333334157},"pointerDelta":{"changedPercent":38.873333333333335,"meanDelta":18.46836296296316},"scrollDelta":{"changedPercent":47.525,"meanDelta":23.28187037037041},"realTimePerformance":{"fps":10.970464135021096,"averageMs":11.26923076923077,"detail":"light"}}
+# webkit-desktop-ai {"label":"webkit-desktop-ai","motion":{"changedPercent":22.86611111111111,"meanDelta":12.696461111111145},"resume":{"changedPercent":25.29277777777778,"meanDelta":13.26372037037026},"pointerDelta":{"changedPercent":29.162777777777777,"meanDelta":13.530620370370654},"scrollDelta":{"changedPercent":33.555,"meanDelta":16.47501296296319},"realTimePerformance":{"fps":11.387600168705188,"averageMs":7.703703703703703,"detail":"light"}}
+# webkit-desktop-financial {"label":"webkit-desktop-financial","motion":{"changedPercent":47.39888888888889,"meanDelta":25.992590740740784},"resume":{"changedPercent":47.77388888888889,"meanDelta":24.101470370371082},"pointerDelta":{"changedPercent":20.037222222222223,"meanDelta":14.274890740741222},"scrollDelta":{"changedPercent":44.897777777777776,"meanDelta":33.72712962962923},"realTimePerformance":{"fps":10.182435299109036,"averageMs":21.833333333333332,"detail":"light"}}
+# webkit-desktop-systems {"label":"webkit-desktop-systems","motion":{"changedPercent":31.645555555555557,"meanDelta":17.03463888888892},"resume":{"changedPercent":38.70166666666667,"meanDelta":18.886918518520623},"pointerDelta":{"changedPercent":25.626666666666665,"meanDelta":15.695094444447182},"scrollDelta":{"changedPercent":32.36,"meanDelta":19.09705740740621},"realTimePerformance":{"fps":10.651896037494675,"averageMs":14.68,"detail":"full"}}
+# webkit-desktop-industries {"label":"webkit-desktop-industries","motion":{"changedPercent":34.416111111111114,"meanDelta":19.655783333334817},"resume":{"changedPercent":34.38055555555555,"meanDelta":22.485618518518358},"pointerDelta":{"changedPercent":34.17722222222222,"meanDelta":17.513138888889166},"scrollDelta":{"changedPercent":38.242222222222225,"meanDelta":22.26104259259335},"realTimePerformance":{"fps":8.410428931875526,"averageMs":10.05,"detail":"light"}}
+# webkit-mobile-corporate {"label":"webkit-mobile-corporate","motion":{"changedPercent":45.71875,"meanDelta":21.03068055555566},"resume":{"changedPercent":52.53125,"meanDelta":23.391645833333133},"pointerDelta":{"changedPercent":40.80625,"meanDelta":19.948881944444786},"scrollDelta":{"changedPercent":50.42916666666667,"meanDelta":24.747451388888656},"realTimePerformance":{"fps":14.372822299651569,"averageMs":16.545454545454547,"detail":"full"}}
+# webkit-mobile-ai {"label":"webkit-mobile-ai","motion":{"changedPercent":25.916666666666668,"meanDelta":13.122944444444675},"resume":{"changedPercent":29.160416666666666,"meanDelta":14.694048611111253},"pointerDelta":{"changedPercent":25.677083333333332,"meanDelta":12.906673611111218},"scrollDelta":{"changedPercent":31.070833333333333,"meanDelta":16.43400694444501},"realTimePerformance":{"fps":18.622780424426157,"averageMs":12.069767441860465,"detail":"full"}}
+# webkit-mobile-financial {"label":"webkit-mobile-financial","motion":{"changedPercent":51.85,"meanDelta":32.23204861111153},"resume":{"changedPercent":64.84166666666667,"meanDelta":33.6991319444443},"pointerDelta":{"changedPercent":33.333333333333336,"meanDelta":21.539284722222526},"scrollDelta":{"changedPercent":50.31875,"meanDelta":34.96056249999913},"realTimePerformance":{"fps":14.410480349344978,"averageMs":17.454545454545453,"detail":"full"}}
+# webkit-mobile-systems {"label":"webkit-mobile-systems","motion":{"changedPercent":38.8875,"meanDelta":18.427104166666908},"resume":{"changedPercent":45.84375,"meanDelta":20.704701388889678},"pointerDelta":{"changedPercent":30.35,"meanDelta":16.98133333333371},"scrollDelta":{"changedPercent":36.833333333333336,"meanDelta":20.29556250000268},"realTimePerformance":{"fps":22.23190932868352,"averageMs":7.372549019607843,"detail":"full"}}
+# webkit-mobile-industries {"label":"webkit-mobile-industries","motion":{"changedPercent":35.55833333333333,"meanDelta":17.27915972222243},"resume":{"changedPercent":37.19375,"meanDelta":17.840215277777787},"pointerDelta":{"changedPercent":34.6125,"meanDelta":16.082680555555807},"scrollDelta":{"changedPercent":41.00625,"meanDelta":21.41484722222286},"realTimePerformance":{"fps":21.00656455142232,"averageMs":12.416666666666666,"detail":"full"}}
+# Subtest: visible engine movement, interaction and suspension in Chromium and WebKit desktop/mobile
+ok 29 - visible engine movement, interaction and suspension in Chromium and WebKit desktop/mobile
+  ---
+  duration_ms: 309560.542879
+  type: 'test'
+  ...
+1..29
+# tests 29
+# suites 0
+# pass 29
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 514630.125965

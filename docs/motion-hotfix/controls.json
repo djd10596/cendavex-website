@@ -1,0 +1,15 @@
+{
+  "realTimePerformance": [
+    {
+      "engine": "chromium",
+      "fps": 22.055182968707527,
+      "averageMs": 6.197959189512292
+    },
+    {
+      "engine": "webkit",
+      "fps": 11.205737337516808,
+      "averageMs": 11.08
+    }
+  ],
+  "visibility": "Synthetic document.hidden transitions; not physical Safari tab testing"
+}

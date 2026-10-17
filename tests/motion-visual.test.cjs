@@ -1,0 +1,38 @@
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');const path=require('node:path');const http=require('node:http');
+const {chromium,webkit}=require('playwright');const {PNG}=require('pngjs');
+const root=path.resolve(__dirname,'..'),output=process.env.MOTION_EVIDENCE||'/tmp/cendavex-motion-evidence';
+function difference(a,b){a=PNG.sync.read(a);b=PNG.sync.read(b);assert.equal(a.width,b.width);assert.equal(a.height,b.height);let changed=0,sum=0;for(let i=0;i<a.data.length;i+=4){let d=0;for(let c=0;c<3;c++)d+=Math.abs(a.data[i+c]-b.data[i+c]);sum+=d/3;if(d/3>10)changed++;}return{changedPercent:100*changed/(a.width*a.height),meanDelta:sum/(a.width*a.height)};}
+test('visible engine movement, interaction and suspension in Chromium and WebKit desktop/mobile',async()=>{
+ fs.mkdirSync(output,{recursive:true});const results=[];
+ const server=http.createServer((req,res)=>{let f=path.join(root,req.url.split('?')[0]);if(fs.existsSync(f)&&fs.statSync(f).isDirectory())f=path.join(f,'index.html');fs.readFile(f,(e,d)=>{if(e)return res.writeHead(404).end();res.setHeader('Content-Type',({'.js':'application/javascript','.css':'text/css','.html':'text/html','.webp':'image/webp','.png':'image/png'})[path.extname(f)]||'application/octet-stream');res.end(d);});});await new Promise(r=>server.listen(0,'127.0.0.1',r));const base=process.env.MOTION_BASE||`http://127.0.0.1:${server.address().port}`;
+ try{for(const [engine,type]of Object.entries({chromium,webkit})){
+ const browser=await type.launch();try{for(const mobile of [false,true])for(const area of ['','ai','financial','systems','industries']){
+ if(process.env.MOTION_CASE&&process.env.MOTION_CASE!==`${engine}-${mobile?'mobile':'desktop'}-${area||'corporate'}`)continue;
+ const page=await browser.newPage({viewport:mobile?{width:390,height:844}:{width:1440,height:900},reducedMotion:'no-preference'});const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.route(/https:\/\/(?!cendavex\.com)/,r=>r.abort());await page.goto(`${base}/${area?area+'/':''}`);await page.waitForSelector('.is-rendered');await page.waitForTimeout(200);
+ const label=`${engine}-${mobile?'mobile':'desktop'}-${area||'corporate'}`;
+ const canvas=page.locator('canvas[data-world]');const box=await canvas.boundingBox();
+ // Actual screen pixels in the main engine, above copy and below controls.
+ const clip=mobile?{x:35,y:box.y+140,width:320,height:150}:{x:600,y:box.y+130,width:600,height:300};
+ const shot=()=>page.screenshot({clip,animations:'allow'});
+ const graphic=raw=>{const source=PNG.sync.read(raw),dpr=source.width/box.width;const x=Math.round((clip.x-box.x)*dpr),y=Math.round((clip.y-box.y)*dpr),w=Math.round(clip.width*dpr),h=Math.round(clip.height*dpr);const target=new PNG({width:w,height:h});PNG.bitblt(source,target,x,y,w,h,0,0);return PNG.sync.write(target);};
+ const first=await shot();const perfStart=await canvas.evaluate(c=>({...c.sceneStats,at:performance.now()}));await page.waitForTimeout(2200);const second=await shot();const perfEnd=await canvas.evaluate(c=>({...c.sceneStats,at:performance.now()}));const realTimePerformance={fps:(perfEnd.frames-perfStart.frames)*1000/(perfEnd.at-perfStart.at),averageMs:(perfEnd.totalMs-perfStart.totalMs)/(perfEnd.frames-perfStart.frames),detail:perfEnd.detail};
+ fs.writeFileSync(`${output}/${label}-a.png`,first);fs.writeFileSync(`${output}/${label}-b.png`,second);
+ const motion=difference(first,second);assert.ok(motion.changedPercent>4,`${label} substantial movement: ${JSON.stringify(motion)}`);
+ await page.getByRole('button',{name:'Pause scene',exact:true}).click();await page.waitForTimeout(100);const paused=await shot();await page.mouse.move(100,350);await page.waitForTimeout(2100);assert.equal(difference(paused,await shot()).changedPercent,0,`${label} pause stable`);
+ await page.getByRole('button',{name:'Resume scene',exact:true}).click();await page.waitForTimeout(2200);const resume=difference(paused,await shot());assert.ok(resume.changedPercent>4,`${label} resumes`);
+ await page.emulateMedia({reducedMotion:'reduce'});await page.waitForTimeout(100);const reduced=await shot();await page.mouse.move(300,300);await page.evaluate(()=>scrollBy(0,20));await page.waitForTimeout(250);await page.evaluate(()=>scrollTo(0,0));await page.waitForTimeout(100);assert.equal(difference(reduced,await shot()).changedPercent,0,'reduced frame stable');await page.getByRole('button',{name:'Enable scene motion',exact:true}).click();await page.waitForTimeout(600);assert.ok(difference(reduced,await shot()).changedPercent>2,'explicit reduced motion opt-in');
+ await page.emulateMedia({reducedMotion:'no-preference'});await page.waitForTimeout(200);await page.emulateMedia({reducedMotion:'reduce'});await page.getByRole('button',{name:'Enable scene motion',exact:true}).waitFor({state:'visible'});assert.equal(await page.getByRole('button',{name:'Enable scene motion',exact:true}).count(),1,'preference transition revokes opt-in');
+ // Deterministic time freezes animation phase to isolate pointer and scroll response.
+ await page.emulateMedia({reducedMotion:'no-preference'});await page.clock.install();await page.clock.pauseAt(new Date(Date.now()+1000));
+ // Compare identical time steps with/without input in two reloads.
+ const compare=async(action)=>{await page.reload();await page.clock.runFor(300);if(action==='pointer')await page.mouse.move(20,box.y+180);if(action==='scroll'){await page.evaluate(()=>scrollTo({top:240,behavior:'instant'}));await page.waitForTimeout(200);assert.equal(await page.evaluate(()=>scrollY),240,'browser actually scrolled');}await page.clock.runFor(600);return graphic(Buffer.from(await canvas.evaluate(c=>c.toDataURL().split(',')[1]),'base64'));};
+ await page.mouse.move(390,0);const baseline=await compare('none');await page.mouse.move(390,0);const pointed=await compare('pointer');const pointerDelta=difference(baseline,pointed);assert.ok(pointerDelta.changedPercent>1,`${label} pointer ${JSON.stringify(pointerDelta)}`);
+ await page.mouse.move(390,0);const scrolled=await compare('scroll');fs.writeFileSync(`${output}/${label}-input-baseline.png`,baseline);fs.writeFileSync(`${output}/${label}-input-scroll.png`,scrolled);const scrollDelta=difference(baseline,scrolled);assert.ok(scrollDelta.changedPercent>2,`${label} scroll ${JSON.stringify(scrollDelta)}`);
+ await page.evaluate(()=>scrollTo({top:1800,behavior:'instant'}));await page.clock.runFor(300);const off=await canvas.evaluate(c=>c.toDataURL());await page.clock.runFor(2200);assert.equal(await canvas.evaluate(c=>c.toDataURL()),off,'offscreen suspended');
+ await page.evaluate(()=>{localStorage.setItem('cendavexMotionPaused','true');});await page.reload();await page.clock.runFor(200);assert.match(await page.locator('.cinema-status').innerText(),/saved preference/);const saved=await canvas.evaluate(c=>c.toDataURL());await page.clock.runFor(2200);assert.equal(await canvas.evaluate(c=>c.toDataURL()),saved,'saved pause stable');await page.getByRole('button',{name:'Resume scene',exact:true}).click();await page.clock.runFor(1000);assert.notEqual(await canvas.evaluate(c=>c.toDataURL()),saved,'scene resumes persistent global pause');assert.equal(await page.evaluate(()=>localStorage.getItem('cendavexMotionPaused')),'false');
+ assert.deepEqual(errors,[]);results.push({label,motion,resume,pointerDelta,scrollDelta,realTimePerformance});console.log(label,JSON.stringify(results.at(-1)));await page.close();
+ }}finally{await browser.close();}}
+ }finally{fs.writeFileSync(`${output}/results.json`,JSON.stringify(results,null,2));await new Promise(r=>server.close(r));}
+});
