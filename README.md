@@ -21,3 +21,10 @@ October 17 corporate positioning candidate: see
 local browser verification, pending independent review, publication gates and
 scoped rollback. The founder-approved mission in this candidate supersedes the
 older marketing mission referenced above. No publication is implied by a local commit.
+
+October 17 division architecture: corporate navigation starts at `/`; dedicated
+sites start at `/ai/`, `/financial/`, `/systems/` and `/industries/`. Financial tools
+are on Financial subpages. Existing HTML routes and original homepage Financial
+bookmarks remain supported. See [release notes](RELEASE-DIVISIONS-20261017.md).
+Run the existing browser suite with `npm test`; this host uses the established
+`LD_LIBRARY_PATH=/tmp/cendavex-browser-libs/root/usr/lib/x86_64-linux-gnu` setup.

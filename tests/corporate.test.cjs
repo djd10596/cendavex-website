@@ -7,14 +7,14 @@ const { chromium } = require("playwright");
 const AxeBuilder = require("@axe-core/playwright").default;
 const root = path.resolve(__dirname, "..");
 let server, browser, base;
-const pages = ["index.html", "mission.html", "about.html", "divisions.html"];
+const pages = ["index.html", "mission.html", "about.html", "divisions.html", ...["ai", "financial", "systems", "industries"].flatMap(d => require("node:fs").readdirSync(path.join(root,d)).filter(f=>f.endsWith(".html")).map(f=>`${d}/${f}`)), "features.html", "how-it-works.html", "roadmap.html", "brokerage-agnostic.html", "for-traders.html", "news.html"];
 const mission =
   "To engineer intelligent technologies that solve meaningful problems, protect what matters, and expand what people and businesses can achieve.";
 const supporting =
   "Through artificial intelligence, autonomous systems, and continuous innovation, we strive to turn complex challenges into reliable, accessible, and transformative solutions.";
 before(async () => {
   server = http.createServer((req, res) => {
-    const filename = path.resolve(
+    let filename = path.resolve(
       root,
       "." +
         (req.url.split("?")[0] === "/" ? "/index.html" : req.url.split("?")[0]),
@@ -23,6 +23,7 @@ before(async () => {
       res.writeHead(403).end();
       return;
     }
+    if (fs.existsSync(filename) && fs.statSync(filename).isDirectory()) filename = path.join(filename, "index.html");
     fs.readFile(filename, (err, data) => {
       if (err) {
         res.writeHead(404).end();
@@ -117,22 +118,12 @@ for (const file of pages) {
       "auto",
     );
     assert.equal(await page.locator('[style*="animation"]').count(), 0);
-    if (file === "index.html") {
+    if (file === "financial/investing.html") {
       assert.equal(await page.getByRole("region", { name: "Market Pulse", exact: true }).count(), 1);
       await page.getByLabel("Market availability and display status").click();
       assert.equal(await page.locator(".cx-provider-links a").count(), 6);
       assert.ok((await page.locator(".cx-pulse-info-panel").innerText()).includes("Moving quotes are off"));
       await page.getByLabel("Market availability and display status").click();
-      await page.locator('[data-demo="1"]').click();
-      assert.equal(
-        await page.locator("#demo-title").textContent(),
-        "Make the reasoning visible.",
-      );
-      assert.equal(
-        await page.locator('[data-demo="1"]').getAttribute("aria-pressed"),
-        "true",
-      );
-      await page.locator('[data-demo="0"]').click();
       await page.locator('[data-profile="aggressive"]').click();
       assert.equal(
         await page.locator("[data-profile-title]").textContent(),
@@ -143,16 +134,6 @@ for (const file of pages) {
         await page.locator("[data-profile-title]").textContent(),
         "Conservative",
       );
-      for (const product of ["academy", "swing", "studio"]) {
-        assert.equal(
-          await page
-            .locator(
-              `a[href="https://app.cendavex.com/product-preview/#${product}"]`,
-            )
-            .count(),
-          1,
-        );
-      }
       await page.emulateMedia({ reducedMotion: "no-preference" });
       await page
         .getByRole("button", { name: "Pause visual motion", exact: true })
@@ -167,23 +148,13 @@ for (const file of pages) {
         .getByRole("button", { name: "Resume visual motion", exact: true })
         .click();
       await page.emulateMedia({ reducedMotion: "reduce" });
-      assert.equal(
-        await page.locator("h1").innerText(),
-        "The Future Doesn't Build Itself.\nWe Engineer What's Next.",
-      );
-      assert.equal(
-        await page
-          .locator(".engineering-orbit i")
-          .last()
-          .evaluate((el) => getComputedStyle(el).animationName),
-        "none",
-      );
     }
+
     if (["index.html", "mission.html", "about.html"].includes(file)) {
       assert.ok((await page.locator("main").innerText()).includes(mission));
       assert.ok((await page.locator("main").innerText()).includes(supporting));
     }
-    if (file === "divisions.html") {
+    if (file === "ai/products.html") {
       assert.equal(await page.locator(".research-grid article").count(), 6);
       assert.equal(
         await page
@@ -192,6 +163,28 @@ for (const file of pages) {
           .count(),
         6,
       );
+    }
+    assert.equal(await page.locator('nav [aria-current="page"]').count(), 1);
+    await page.setViewportSize({width:390,height:900});
+    await page.reload();
+    const menu = page.locator('.division-menu');
+    assert.equal(await menu.getAttribute('open'), null);
+    await menu.locator('summary').press('Enter');
+    assert.equal(await menu.locator('nav').isVisible(), true);
+    await page.locator('.division-switcher summary').click();
+    assert.equal(await page.locator('.division-switcher nav a').count(), 5);
+    if (file === 'financial/academy.html' || file === 'financial/trading.html') {
+      await page.locator('[data-demo="1"]').click();
+      assert.equal(await page.locator('#demo-title').textContent(), 'Make the reasoning visible.');
+      assert.equal(await page.locator('[data-demo="1"]').getAttribute('aria-pressed'), 'true');
+    }
+    if (file === 'financial/products.html') for (const product of ['academy','swing','studio']) {
+      assert.equal(await page.locator(`a[href="https://app.cendavex.com/product-preview/#${product}"]`).count(),1);
+    }
+    if(file === 'index.html') {
+      assert.equal(await page.locator('[data-investing], [data-market-pulse]').count(),0);
+      assert.equal(await page.locator('h1').innerText(), "The Future Doesn't Build Itself.\nWe Engineer What's Next.");
+      assert.equal(await page.locator('.engineering-orbit i').last().evaluate(el=>getComputedStyle(el).animationName), 'none');
     }
     assert.deepEqual(errors, []);
     if (process.env.SCREENSHOT_DIR) {
@@ -210,3 +203,13 @@ for (const file of pages) {
     await context.close();
   });
 }
+test('legacy homepage bookmarks resolve to Financial experiences', async () => {
+  const page = await browser.newPage();
+  await page.route('https://**/*', route => route.fulfill({body:''}));
+  for (const [hash,destination] of [['investing','/financial/investing.html'],['products','/financial/products.html'],['experience','/financial/academy.html#experience'],['market-pulse','/financial/#market-pulse']]) {
+    await page.goto(`${base}/#${hash}`);
+    await page.waitForURL(`${base}${destination}`);
+    assert.equal(new URL(page.url()).pathname, destination.split('#')[0]);
+  }
+  await page.close();
+});
