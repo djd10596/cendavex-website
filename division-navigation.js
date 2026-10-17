@@ -3,6 +3,7 @@ const menu = document.querySelector('.division-menu');
 const narrow = matchMedia('(max-width: 760px)');
 function sizeMenu() { if (menu) menu.open = !narrow.matches; }
 sizeMenu();
+document.documentElement.classList.add('division-nav-ready');
 narrow.addEventListener('change', sizeMenu);
 // Resolve original public homepage bookmarks to their relocated experiences.
 if (location.pathname === '/' || location.pathname === '/index.html') {

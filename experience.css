@@ -21,3 +21,10 @@ html.cx3-background *,html.cx3-background *:before,html.cx3-background *:after{a
 /* Contain transformed orbital planes without clipping page content. */
 .engineering-orbit{overflow:clip;border-radius:0;width:100%;margin-left:0}.engineering-orbit i{inset:14%}.engineering-orbit i:nth-of-type(2){inset:15%}.engineering-orbit i:nth-of-type(3){inset:12%}
 .cx3-supervisor,.cx3-policy{margin-top:28px;padding-top:25px;border-top:1px solid #34516e}.cx3-supervisor p,.cx3-policy p{font-size:12px}.cx3-supervisor .eyebrow{font-size:10px;margin-bottom:12px}.cx3-supervisor-actions{display:flex;gap:8px;flex-wrap:wrap}.cx3-supervisor button,.cx3-policy button{font:inherit;font-size:12px;border:1px solid #749ac1;padding:10px 12px;min-height:44px;border-radius:4px;background:#1b3551;color:#e0edff;cursor:pointer}.cx3-supervisor button:disabled{opacity:.55;cursor:default}.cx3-supervisor [data-supervisor-state],.cx3-policy [data-policy-result]{margin:18px 0 0;color:#e0edff}.cx3-trace{padding-left:20px;margin-bottom:0;color:#abc6e2;font-size:11px;line-height:1.8}.cx3-console .cx3-policy input{background:#081222;border:1px solid #7294b8;border-radius:4px;padding:12px;color:#fff;font:inherit;font-size:13px;margin:0 0 12px}.cx3-policy label{font-weight:650}
+/* Match the mobile menu's scripted initial state before its initializer runs.
+   Native open menus remain available when scripting is disabled. */
+@media (scripting:enabled) and (max-width:760px){
+ html:not(.division-nav-ready) .division-menu .nav-links{display:none}
+ html:not(.division-nav-ready) .division-menu[open]{grid-column:1;padding-top:0;position:static}
+ html:not(.division-nav-ready) .division-menu[open]>summary{position:static}
+}
