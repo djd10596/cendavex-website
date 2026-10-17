@@ -15,3 +15,9 @@ branch, GitHub Pages hosting and CNAME. Roll back with a Git revert of the brand
 release commit and push that revert to main; retain subsequent unrelated changes.
 
 Experience 2.0 makes four-profile intelligent investing the homepage flagship. Public composition figures reflect verified Cendavex mandates; exploring profiles never changes an account. Founding beta remains paper money and live customer investing is unavailable. Native cinematic motion respects reduced motion and includes a pause control. News renders only attributed public metadata and SEC filing-event links; customer-display market prices remain unavailable pending commercial licensing. Exact approved logo preserved.
+
+October 17 corporate positioning candidate: see
+[RELEASE-CORPORATE-20261017.md](RELEASE-CORPORATE-20261017.md) for source boundaries,
+local browser verification, pending independent review, publication gates and
+scoped rollback. The founder-approved mission in this candidate supersedes the
+older marketing mission referenced above. No publication is implied by a local commit.
