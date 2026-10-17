@@ -6,7 +6,7 @@ if(slides.length){let index=0;const prev=document.querySelector('#previous'),nex
 document.querySelectorAll('[data-play]').forEach(button=>button.addEventListener('click',async()=>{
  const video=document.getElementById(button.dataset.play);
  if(!video.dataset.loaded){video.querySelectorAll('source[data-src]').forEach(source=>source.src=source.dataset.src);video.dataset.loaded='true';video.load();}
- try{await video.play();button.hidden=true;}catch{button.textContent='Retry playback ↗';}
+ try{await video.play();if(video===film&&video.textTracks.length&&!video.dataset.captionReady){video.textTracks[0].mode='showing';video.dataset.captionReady='true';}button.hidden=true;}catch{button.textContent='Retry playback ↗';}
 }));
 
 if(film)film.addEventListener('loadedmetadata',()=>{if(film.dataset.seek){film.currentTime=Number(film.dataset.seek);delete film.dataset.seek;}});

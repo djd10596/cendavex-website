@@ -1,0 +1,17 @@
+{
+  "environment": "Published media with local caption-activation script override; public verification follows deployment",
+  "results": [
+    {
+      "engine": "chromium",
+      "mode": "showing",
+      "cues": 10,
+      "time": 1.1734
+    },
+    {
+      "engine": "webkit",
+      "mode": "showing",
+      "cues": 10,
+      "time": 0.949857372
+    }
+  ]
+}
