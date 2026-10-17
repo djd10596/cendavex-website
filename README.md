@@ -35,3 +35,9 @@ Capture and check five-area navigation at desktop/tablet/mobile with
 `node scripts/verify-brand.cjs`; `BRAND_BASE=https://cendavex.com` checks live Pages.
 
 Experience 3.0 isolated candidate: see [implementation, preview, verification and app roadmap](EXPERIENCE-3.0.md). This candidate is committed locally for independent release review; it does not authorize publication or customer application changes.
+
+October 17 signature interiors continue the published moving Intelligence Engine
+across all 19 interior routes, with original division-specific vector environments,
+local explanatory interactions and motion/accessibility controls. See
+[signature release notes](RELEASE-SIGNATURE-20261017.md) for exact routes, the
+Chromium/WebKit host setup, tests, verification and rollback procedure.

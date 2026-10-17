@@ -29,12 +29,12 @@ function pulse(){document.querySelectorAll('[data-market-pulse]').forEach(root=>
  note.append(safeLink('NYSE hours ↗','https://www.nyse.com/trade/hours-calendars'));root.append(note);
  if(!publicEmbed){const fallback=make('small','Quotes unavailable on this surface. ');fallback.append(safeLink('Public Market Pulse ↗','https://cendavex.com/#market-pulse'));root.append(fallback);return;}
  root.id='market-pulse';
- const toggle=make('button','Hide moving quotes','cx-pulse-toggle');toggle.type='button';toggle.setAttribute('aria-controls','cx-provider');
+ const toggle=make('button','Hide quotes (moving display)','cx-pulse-toggle');toggle.type='button';toggle.setAttribute('aria-controls','cx-provider');
  const provider=make('div',null,'cx-provider');provider.id='cx-provider';
  const status=make('small','TradingView quotes may be delayed or unavailable; freshness is not independently verified.');status.setAttribute('role','status');
  const links=make('small',null,'cx-provider-links');links.append(document.createTextNode('Open markets: '));
  for(const [name,key] of [['SPY','AMEX-SPY'],['QQQ','NASDAQ-QQQ'],['DIA','AMEX-DIA'],['IWM','AMEX-IWM'],['BTC/USD','BITSTAMP-BTCUSD'],['ETH/USD','BITSTAMP-ETHUSD']])links.append(safeLink(name+' ↗','https://www.tradingview.com/symbols/'+key+'/'),document.createTextNode('  '));
- const info=make('details',null,'cx-pulse-info'),summary=make('summary','Info');summary.setAttribute('aria-label','Market availability and display status');
+ const info=make('details',null,'cx-pulse-info'),summary=make('summary','Info');summary.setAttribute('aria-label','Info: Market availability and display status');
  const panel=make('div',null,'cx-pulse-info-panel');panel.append(title,sessions,note,status,links);info.append(summary,panel);
  root.replaceChildren(provider,toggle,info);
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');let hidden=false,timer=null,observer=null,generation=0,appliedOff=null,retry=false;
@@ -46,25 +46,25 @@ function pulse(){document.querySelectorAll('[data-market-pulse]').forEach(root=>
   const attribution=safeLink(null,'https://www.tradingview.com/markets/?utm_source=www.tradingview.com&utm_medium=widget_new&utm_campaign=ticker-tape');attribution.rel='noopener nofollow';attribution.append(make('span','Ticker tape','blue-text'));copyright.append(attribution,make('span',' by TradingView','trademark'));
   const script=document.createElement('script');script.src='https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js';script.async=true;
   script.textContent=JSON.stringify({symbols:[{proName:'AMEX:SPY',title:'SPY'},{proName:'NASDAQ:QQQ',title:'QQQ'},{proName:'AMEX:DIA',title:'DIA'},{proName:'AMEX:IWM',title:'IWM'},{proName:'BITSTAMP:BTCUSD',title:'BTC/USD'},{proName:'BITSTAMP:ETHUSD',title:'ETH/USD'}],showSymbolLogo:true,colorTheme:'dark',isTransparent:false,displayMode:'regular',locale:'en'});
-  function failed(){if(run!==generation)return;stop();provider.hidden=true;retry=true;root.dataset.providerState='failed';status.textContent='TradingView request failed. Quotes unavailable here; use the market links.';toggle.textContent='Retry quotes';toggle.setAttribute('aria-label','Retry moving quotes');toggle.setAttribute('aria-expanded','false');}
+  function failed(){if(run!==generation)return;stop();provider.hidden=true;retry=true;root.dataset.providerState='failed';status.textContent='TradingView request failed. Quotes unavailable here; use the market links.';toggle.textContent='Retry quotes';toggle.setAttribute('aria-label','Retry quotes (moving display)');toggle.setAttribute('aria-expanded','false');}
   script.addEventListener('error',failed,{once:true});
   root.dataset.providerState='loading';delete root.dataset.scriptLoaded;retry=false;
   script.addEventListener('load',()=>{if(run!==generation)return;root.dataset.scriptLoaded='true';},{once:true});
   // TradingView REPLACES the placeholder: observe its stable parent, not the detached node.
   observer=new MutationObserver(()=>{const frame=container.querySelector('iframe');if(!frame)return;frame.title='TradingView market quotes';observer.disconnect();root.dataset.providerState='frame-created';
-   frame.addEventListener('load',()=>{if(run!==generation)return;clearTimeout(timer);retry=false;toggle.textContent='Hide quotes';toggle.setAttribute('aria-label','Hide moving quotes');root.dataset.providerState='frame-loaded';status.textContent='TradingView frame loaded; rendered content and quote freshness are not independently verified. Quotes may be delayed or unavailable.';},{once:true});
+   frame.addEventListener('load',()=>{if(run!==generation)return;clearTimeout(timer);retry=false;toggle.textContent='Hide quotes';toggle.setAttribute('aria-label','Hide quotes (moving display)');root.dataset.providerState='frame-loaded';status.textContent='TradingView frame loaded; rendered content and quote freshness are not independently verified. Quotes may be delayed or unavailable.';},{once:true});
    frame.addEventListener('error',failed,{once:true});
   });
   observer.observe(container,{childList:true,subtree:true});container.append(widget,copyright,script);provider.append(container);
   status.textContent='Loading TradingView. Quotes may be delayed or unavailable; freshness is not independently verified.';
   // Elapsed time is uncertainty, never evidence that a functioning frame failed.
-  timer=setTimeout(()=>{if(run!==generation)return;root.dataset.providerState='unverified';status.textContent='TradingView availability is unverified. Quotes may be delayed or unavailable; use the market links or retry.';retry=true;toggle.textContent='Retry quotes';toggle.setAttribute('aria-label','Retry moving quotes');},15000);
+  timer=setTimeout(()=>{if(run!==generation)return;root.dataset.providerState='unverified';status.textContent='TradingView availability is unverified. Quotes may be delayed or unavailable; use the market links or retry.';retry=true;toggle.textContent='Retry quotes';toggle.setAttribute('aria-label','Retry quotes (moving display)');},15000);
  }
  const reload=make('button','Retry provider display','cx-pulse-toggle');reload.type='button';panel.append(reload);
  reload.addEventListener('click',()=>{hidden=false;try{localStorage.setItem('cendavexQuotesHidden','false');}catch(_){}apply(true);});
  function apply(force=false){const off=hidden||reduced.matches||document.documentElement.classList.contains('cx-motion-paused');
   if(!force&&appliedOff===off)return;appliedOff=off;stop();provider.hidden=off;retry=false;
-  toggle.disabled=reduced.matches||document.documentElement.classList.contains('cx-motion-paused');reload.disabled=toggle.disabled;toggle.textContent=off?'Show quotes':'Hide quotes';toggle.setAttribute('aria-label',off?'Show moving quotes':'Hide moving quotes');toggle.setAttribute('aria-expanded',String(!off));
+  toggle.disabled=reduced.matches||document.documentElement.classList.contains('cx-motion-paused');reload.disabled=toggle.disabled;toggle.textContent=off?'Show quotes':'Hide quotes';toggle.setAttribute('aria-label',off?'Show quotes (moving display)':'Hide quotes (moving display)');toggle.setAttribute('aria-expanded',String(!off));
   root.dataset.providerState=off?'off':'loading';status.textContent=off?'Moving quotes are off. Open the market links for provider quotes.':'Loading TradingView.';if(!off)show();
  }
  toggle.addEventListener('click',()=>{hidden=retry?false:!hidden;try{localStorage.setItem('cendavexQuotesHidden',String(hidden));}catch(_){}apply(true);});const motionPreferenceChanged=()=>apply();if(reduced.addEventListener)reduced.addEventListener('change',motionPreferenceChanged);else reduced.addListener(motionPreferenceChanged);

@@ -1,0 +1,1179 @@
+{
+  "baseline": "921d7839f1bd37f8b21b9fca171761b0c651f8c2",
+  "scope": "Public website only; no customer application or broker changes",
+  "passingTestCases": 30,
+  "testCases": [
+    "cinematic renderer: active, paused, reduced motion, offscreen, fallback and measured performance",
+    "index.html: desktop/mobile layout, local links, content, keyboard and WCAG",
+    "mission.html: desktop/mobile layout, local links, content, keyboard and WCAG",
+    "about.html: desktop/mobile layout, local links, content, keyboard and WCAG",
+    "divisions.html: desktop/mobile layout, local links, content, keyboard and WCAG",
+    "ai/index.html: desktop/mobile layout, local links, content, keyboard and WCAG",
+    "ai/products.html: desktop/mobile layout, local links, content, keyboard and WCAG",
+    "ai/research.html: desktop/mobile layout, local links, content, keyboard and WCAG",
+    "financial/academy.html: desktop/mobile layout, local links, content, keyboard and WCAG",
+    "financial/index.html: desktop/mobile layout, local links, content, keyboard and WCAG",
+    "financial/investing.html: desktop/mobile layout, local links, content, keyboard and WCAG",
+    "financial/products.html: desktop/mobile layout, local links, content, keyboard and WCAG",
+    "financial/trading.html: desktop/mobile layout, local links, content, keyboard and WCAG",
+    "systems/index.html: desktop/mobile layout, local links, content, keyboard and WCAG",
+    "systems/reliability.html: desktop/mobile layout, local links, content, keyboard and WCAG",
+    "systems/research.html: desktop/mobile layout, local links, content, keyboard and WCAG",
+    "industries/index.html: desktop/mobile layout, local links, content, keyboard and WCAG",
+    "industries/markets.html: desktop/mobile layout, local links, content, keyboard and WCAG",
+    "industries/research.html: desktop/mobile layout, local links, content, keyboard and WCAG",
+    "features.html: desktop/mobile layout, local links, content, keyboard and WCAG",
+    "how-it-works.html: desktop/mobile layout, local links, content, keyboard and WCAG",
+    "roadmap.html: desktop/mobile layout, local links, content, keyboard and WCAG",
+    "brokerage-agnostic.html: desktop/mobile layout, local links, content, keyboard and WCAG",
+    "for-traders.html: desktop/mobile layout, local links, content, keyboard and WCAG",
+    "news.html: desktop/mobile layout, local links, content, keyboard and WCAG",
+    "legacy homepage bookmarks resolve to Financial experiences",
+    "Experience 3.0: simulations, motion, metadata, offline rendering and visual evidence",
+    "motion controls: initial reduced preference, global preference, visibility, storage denial and frame budget",
+    "visible engine movement, interaction and suspension in Chromium and WebKit desktop/mobile",
+    "signature interiors: both engines, every route, responsive rendering, explanation controls, accessibility and motion"
+  ],
+  "interiorViewportChecks": 76,
+  "labMeasurements": [
+    {
+      "engine": "chromium",
+      "file": "about.html",
+      "width": 1440,
+      "cls": 0.004071239330150463,
+      "domMs": 181.60000002384186
+    },
+    {
+      "engine": "chromium",
+      "file": "about.html",
+      "width": 390,
+      "cls": 0,
+      "domMs": 123.39999997615814
+    },
+    {
+      "engine": "chromium",
+      "file": "brokerage-agnostic.html",
+      "width": 1440,
+      "cls": 0.002125000482253086,
+      "domMs": 136.60000002384186
+    },
+    {
+      "engine": "chromium",
+      "file": "brokerage-agnostic.html",
+      "width": 390,
+      "cls": 4.535384615384616e-05,
+      "domMs": 142
+    },
+    {
+      "engine": "chromium",
+      "file": "divisions.html",
+      "width": 1440,
+      "cls": 0.004071239330150463,
+      "domMs": 112.5
+    },
+    {
+      "engine": "chromium",
+      "file": "divisions.html",
+      "width": 390,
+      "cls": 0,
+      "domMs": 132
+    },
+    {
+      "engine": "chromium",
+      "file": "features.html",
+      "width": 1440,
+      "cls": 0.004817526689694251,
+      "domMs": 239.20000004768372
+    },
+    {
+      "engine": "chromium",
+      "file": "features.html",
+      "width": 390,
+      "cls": 4.535384615384616e-05,
+      "domMs": 129
+    },
+    {
+      "engine": "chromium",
+      "file": "for-traders.html",
+      "width": 1440,
+      "cls": 0.004817526689694251,
+      "domMs": 151.39999997615814
+    },
+    {
+      "engine": "chromium",
+      "file": "for-traders.html",
+      "width": 390,
+      "cls": 4.535384615384616e-05,
+      "domMs": 133.30000007152557
+    },
+    {
+      "engine": "chromium",
+      "file": "how-it-works.html",
+      "width": 1440,
+      "cls": 0.004817526689694251,
+      "domMs": 141.60000002384186
+    },
+    {
+      "engine": "chromium",
+      "file": "how-it-works.html",
+      "width": 390,
+      "cls": 4.535384615384616e-05,
+      "domMs": 133.89999997615814
+    },
+    {
+      "engine": "chromium",
+      "file": "mission.html",
+      "width": 1440,
+      "cls": 0.001479567916304977,
+      "domMs": 98.19999992847443
+    },
+    {
+      "engine": "chromium",
+      "file": "mission.html",
+      "width": 390,
+      "cls": 0,
+      "domMs": 74.39999997615814
+    },
+    {
+      "engine": "chromium",
+      "file": "news.html",
+      "width": 1440,
+      "cls": 0.011613873758198301,
+      "domMs": 135.69999992847443
+    },
+    {
+      "engine": "chromium",
+      "file": "news.html",
+      "width": 390,
+      "cls": 0.021289292307692307,
+      "domMs": 154.10000002384186
+    },
+    {
+      "engine": "chromium",
+      "file": "roadmap.html",
+      "width": 1440,
+      "cls": 9.97166763117284e-06,
+      "domMs": 184.5
+    },
+    {
+      "engine": "chromium",
+      "file": "roadmap.html",
+      "width": 390,
+      "cls": 4.535384615384616e-05,
+      "domMs": 145
+    },
+    {
+      "engine": "chromium",
+      "file": "ai/products.html",
+      "width": 1440,
+      "cls": 0.0055317559136284725,
+      "domMs": 100
+    },
+    {
+      "engine": "chromium",
+      "file": "ai/products.html",
+      "width": 390,
+      "cls": 0,
+      "domMs": 129
+    },
+    {
+      "engine": "chromium",
+      "file": "ai/research.html",
+      "width": 1440,
+      "cls": 0,
+      "domMs": 121.10000002384186
+    },
+    {
+      "engine": "chromium",
+      "file": "ai/research.html",
+      "width": 390,
+      "cls": 0,
+      "domMs": 134.89999997615814
+    },
+    {
+      "engine": "chromium",
+      "file": "financial/academy.html",
+      "width": 1440,
+      "cls": 0.004663419596354167,
+      "domMs": 112
+    },
+    {
+      "engine": "chromium",
+      "file": "financial/academy.html",
+      "width": 390,
+      "cls": 0,
+      "domMs": 141.89999997615814
+    },
+    {
+      "engine": "chromium",
+      "file": "financial/investing.html",
+      "width": 1440,
+      "cls": 0.00525559986255787,
+      "domMs": 142.80000007152557
+    },
+    {
+      "engine": "chromium",
+      "file": "financial/investing.html",
+      "width": 390,
+      "cls": 0,
+      "domMs": 131.90000009536743
+    },
+    {
+      "engine": "chromium",
+      "file": "financial/products.html",
+      "width": 1440,
+      "cls": 0.0063945068359375,
+      "domMs": 130.70000004768372
+    },
+    {
+      "engine": "chromium",
+      "file": "financial/products.html",
+      "width": 390,
+      "cls": 0,
+      "domMs": 86.29999995231628
+    },
+    {
+      "engine": "chromium",
+      "file": "financial/trading.html",
+      "width": 1440,
+      "cls": 0.00214034582067419,
+      "domMs": 106.40000009536743
+    },
+    {
+      "engine": "chromium",
+      "file": "financial/trading.html",
+      "width": 390,
+      "cls": 0,
+      "domMs": 131.89999997615814
+    },
+    {
+      "engine": "chromium",
+      "file": "systems/reliability.html",
+      "width": 1440,
+      "cls": 0.008145383707682292,
+      "domMs": 105.30000007152557
+    },
+    {
+      "engine": "chromium",
+      "file": "systems/reliability.html",
+      "width": 390,
+      "cls": 0.0030856,
+      "domMs": 134.40000009536743
+    },
+    {
+      "engine": "chromium",
+      "file": "systems/research.html",
+      "width": 1440,
+      "cls": 0,
+      "domMs": 61.40000009536743
+    },
+    {
+      "engine": "chromium",
+      "file": "systems/research.html",
+      "width": 390,
+      "cls": 0.0004032,
+      "domMs": 102.29999995231628
+    },
+    {
+      "engine": "chromium",
+      "file": "industries/markets.html",
+      "width": 1440,
+      "cls": 0.0053481280291521995,
+      "domMs": 115.39999997615814
+    },
+    {
+      "engine": "chromium",
+      "file": "industries/markets.html",
+      "width": 390,
+      "cls": 0,
+      "domMs": 95.5
+    },
+    {
+      "engine": "chromium",
+      "file": "industries/research.html",
+      "width": 1440,
+      "cls": 0,
+      "domMs": 57
+    },
+    {
+      "engine": "chromium",
+      "file": "industries/research.html",
+      "width": 390,
+      "cls": 0,
+      "domMs": 110.5
+    },
+    {
+      "engine": "webkit",
+      "file": "about.html",
+      "width": 1440,
+      "cls": null,
+      "domMs": 69
+    },
+    {
+      "engine": "webkit",
+      "file": "about.html",
+      "width": 390,
+      "cls": null,
+      "domMs": 75
+    },
+    {
+      "engine": "webkit",
+      "file": "brokerage-agnostic.html",
+      "width": 1440,
+      "cls": null,
+      "domMs": 111
+    },
+    {
+      "engine": "webkit",
+      "file": "brokerage-agnostic.html",
+      "width": 390,
+      "cls": null,
+      "domMs": 83
+    },
+    {
+      "engine": "webkit",
+      "file": "divisions.html",
+      "width": 1440,
+      "cls": null,
+      "domMs": 63
+    },
+    {
+      "engine": "webkit",
+      "file": "divisions.html",
+      "width": 390,
+      "cls": null,
+      "domMs": 64
+    },
+    {
+      "engine": "webkit",
+      "file": "features.html",
+      "width": 1440,
+      "cls": null,
+      "domMs": 83
+    },
+    {
+      "engine": "webkit",
+      "file": "features.html",
+      "width": 390,
+      "cls": null,
+      "domMs": 67
+    },
+    {
+      "engine": "webkit",
+      "file": "for-traders.html",
+      "width": 1440,
+      "cls": null,
+      "domMs": 78
+    },
+    {
+      "engine": "webkit",
+      "file": "for-traders.html",
+      "width": 390,
+      "cls": null,
+      "domMs": 52
+    },
+    {
+      "engine": "webkit",
+      "file": "how-it-works.html",
+      "width": 1440,
+      "cls": null,
+      "domMs": 73
+    },
+    {
+      "engine": "webkit",
+      "file": "how-it-works.html",
+      "width": 390,
+      "cls": null,
+      "domMs": 110
+    },
+    {
+      "engine": "webkit",
+      "file": "mission.html",
+      "width": 1440,
+      "cls": null,
+      "domMs": 71
+    },
+    {
+      "engine": "webkit",
+      "file": "mission.html",
+      "width": 390,
+      "cls": null,
+      "domMs": 68
+    },
+    {
+      "engine": "webkit",
+      "file": "news.html",
+      "width": 1440,
+      "cls": null,
+      "domMs": 86
+    },
+    {
+      "engine": "webkit",
+      "file": "news.html",
+      "width": 390,
+      "cls": null,
+      "domMs": 81
+    },
+    {
+      "engine": "webkit",
+      "file": "roadmap.html",
+      "width": 1440,
+      "cls": null,
+      "domMs": 72
+    },
+    {
+      "engine": "webkit",
+      "file": "roadmap.html",
+      "width": 390,
+      "cls": null,
+      "domMs": 75
+    },
+    {
+      "engine": "webkit",
+      "file": "ai/products.html",
+      "width": 1440,
+      "cls": null,
+      "domMs": 79
+    },
+    {
+      "engine": "webkit",
+      "file": "ai/products.html",
+      "width": 390,
+      "cls": null,
+      "domMs": 73
+    },
+    {
+      "engine": "webkit",
+      "file": "ai/research.html",
+      "width": 1440,
+      "cls": null,
+      "domMs": 71
+    },
+    {
+      "engine": "webkit",
+      "file": "ai/research.html",
+      "width": 390,
+      "cls": null,
+      "domMs": 62
+    },
+    {
+      "engine": "webkit",
+      "file": "financial/academy.html",
+      "width": 1440,
+      "cls": null,
+      "domMs": 65
+    },
+    {
+      "engine": "webkit",
+      "file": "financial/academy.html",
+      "width": 390,
+      "cls": null,
+      "domMs": 67
+    },
+    {
+      "engine": "webkit",
+      "file": "financial/investing.html",
+      "width": 1440,
+      "cls": null,
+      "domMs": 87
+    },
+    {
+      "engine": "webkit",
+      "file": "financial/investing.html",
+      "width": 390,
+      "cls": null,
+      "domMs": 84
+    },
+    {
+      "engine": "webkit",
+      "file": "financial/products.html",
+      "width": 1440,
+      "cls": null,
+      "domMs": 64
+    },
+    {
+      "engine": "webkit",
+      "file": "financial/products.html",
+      "width": 390,
+      "cls": null,
+      "domMs": 87
+    },
+    {
+      "engine": "webkit",
+      "file": "financial/trading.html",
+      "width": 1440,
+      "cls": null,
+      "domMs": 68
+    },
+    {
+      "engine": "webkit",
+      "file": "financial/trading.html",
+      "width": 390,
+      "cls": null,
+      "domMs": 82
+    },
+    {
+      "engine": "webkit",
+      "file": "systems/reliability.html",
+      "width": 1440,
+      "cls": null,
+      "domMs": 69
+    },
+    {
+      "engine": "webkit",
+      "file": "systems/reliability.html",
+      "width": 390,
+      "cls": null,
+      "domMs": 60
+    },
+    {
+      "engine": "webkit",
+      "file": "systems/research.html",
+      "width": 1440,
+      "cls": null,
+      "domMs": 72
+    },
+    {
+      "engine": "webkit",
+      "file": "systems/research.html",
+      "width": 390,
+      "cls": null,
+      "domMs": 73
+    },
+    {
+      "engine": "webkit",
+      "file": "industries/markets.html",
+      "width": 1440,
+      "cls": null,
+      "domMs": 68
+    },
+    {
+      "engine": "webkit",
+      "file": "industries/markets.html",
+      "width": 390,
+      "cls": null,
+      "domMs": 87
+    },
+    {
+      "engine": "webkit",
+      "file": "industries/research.html",
+      "width": 1440,
+      "cls": null,
+      "domMs": 62
+    },
+    {
+      "engine": "webkit",
+      "file": "industries/research.html",
+      "width": 390,
+      "cls": null,
+      "domMs": 71
+    }
+  ],
+  "layoutShiftSupport": {
+    "chromium": true,
+    "webkit": false
+  },
+  "labLimitations": "Local headless software-rendered browsers; not field Core Web Vitals or physical Safari/iOS testing. Unsupported CLS is null. DOM timing excludes user interactions.",
+  "sharedAssetBytes": 8803,
+  "originalLinksFormsLogoPreservedOnRoutes": 24,
+  "entranceMotionControls": {
+    "realTimePerformance": [
+      {
+        "engine": "chromium",
+        "fps": 22.943002384518874,
+        "averageMs": 6.62156864007314
+      },
+      {
+        "engine": "webkit",
+        "fps": 11.081560283687944,
+        "averageMs": 10.84
+      }
+    ],
+    "visibility": "Synthetic document.hidden transitions; not physical Safari tab testing"
+  },
+  "entrancePixelChecks": [
+    {
+      "label": "chromium-desktop-corporate",
+      "motion": {
+        "changedPercent": 48.51611111111111,
+        "meanDelta": 25.74411851851702
+      },
+      "resume": {
+        "changedPercent": 54.77444444444444,
+        "meanDelta": 26.910005555554555
+      },
+      "pointerDelta": {
+        "changedPercent": 38.541666666666664,
+        "meanDelta": 18.19665000000039
+      },
+      "scrollDelta": {
+        "changedPercent": 47.721666666666664,
+        "meanDelta": 23.359324074075417
+      },
+      "realTimePerformance": {
+        "fps": 22.1606648199446,
+        "averageMs": 7.1673077046871185,
+        "detail": "light"
+      }
+    },
+    {
+      "label": "chromium-desktop-ai",
+      "motion": {
+        "changedPercent": 31.602222222222224,
+        "meanDelta": 14.157203703703543
+      },
+      "resume": {
+        "changedPercent": 33.269444444444446,
+        "meanDelta": 14.634807407407397
+      },
+      "pointerDelta": {
+        "changedPercent": 29.441111111111113,
+        "meanDelta": 13.644583333333788
+      },
+      "scrollDelta": {
+        "changedPercent": 33.67166666666667,
+        "meanDelta": 16.464962962963398
+      },
+      "realTimePerformance": {
+        "fps": 21.72338884932222,
+        "averageMs": 10.20196078337875,
+        "detail": "full"
+      }
+    },
+    {
+      "label": "chromium-desktop-financial",
+      "motion": {
+        "changedPercent": 46.44611111111111,
+        "meanDelta": 27.789405555555845
+      },
+      "resume": {
+        "changedPercent": 48.93277777777778,
+        "meanDelta": 25.224262962964218
+      },
+      "pointerDelta": {
+        "changedPercent": 23.967222222222222,
+        "meanDelta": 16.86648703703628
+      },
+      "scrollDelta": {
+        "changedPercent": 44.64555555555555,
+        "meanDelta": 33.72387407406745
+      },
+      "realTimePerformance": {
+        "fps": 21.4330741752469,
+        "averageMs": 17.52941174366895,
+        "detail": "full"
+      }
+    },
+    {
+      "label": "chromium-desktop-systems",
+      "motion": {
+        "changedPercent": 33.611666666666665,
+        "meanDelta": 17.75391481481356
+      },
+      "resume": {
+        "changedPercent": 41.48277777777778,
+        "meanDelta": 19.40390555555825
+      },
+      "pointerDelta": {
+        "changedPercent": 25.395555555555557,
+        "meanDelta": 15.513805555559154
+      },
+      "scrollDelta": {
+        "changedPercent": 32.52444444444444,
+        "meanDelta": 19.081422222224653
+      },
+      "realTimePerformance": {
+        "fps": 21.82938834954454,
+        "averageMs": 7.770588239034017,
+        "detail": "full"
+      }
+    },
+    {
+      "label": "chromium-desktop-industries",
+      "motion": {
+        "changedPercent": 37.99055555555555,
+        "meanDelta": 22.779718518518116
+      },
+      "resume": {
+        "changedPercent": 38.51,
+        "meanDelta": 24.05979259259239
+      },
+      "pointerDelta": {
+        "changedPercent": 34.43833333333333,
+        "meanDelta": 17.74202407407523
+      },
+      "scrollDelta": {
+        "changedPercent": 38.23,
+        "meanDelta": 22.26152592592657
+      },
+      "realTimePerformance": {
+        "fps": 21.97895092798682,
+        "averageMs": 13.79230769780966,
+        "detail": "full"
+      }
+    },
+    {
+      "label": "chromium-mobile-corporate",
+      "motion": {
+        "changedPercent": 46.760416666666664,
+        "meanDelta": 21.223354166666468
+      },
+      "resume": {
+        "changedPercent": 53.29375,
+        "meanDelta": 23.793250000000132
+      },
+      "pointerDelta": {
+        "changedPercent": 40.6125,
+        "meanDelta": 19.86809722222243
+      },
+      "scrollDelta": {
+        "changedPercent": 50.51875,
+        "meanDelta": 24.743479166666816
+      },
+      "realTimePerformance": {
+        "fps": 20.05405876752823,
+        "averageMs": 12.995652183242466,
+        "detail": "full"
+      }
+    },
+    {
+      "label": "chromium-mobile-ai",
+      "motion": {
+        "changedPercent": 25.802083333333332,
+        "meanDelta": 13.049881944444506
+      },
+      "resume": {
+        "changedPercent": 28.935416666666665,
+        "meanDelta": 14.607520833333423
+      },
+      "pointerDelta": {
+        "changedPercent": 25.764583333333334,
+        "meanDelta": 12.911763888889
+      },
+      "scrollDelta": {
+        "changedPercent": 31.09375,
+        "meanDelta": 16.423673611111564
+      },
+      "realTimePerformance": {
+        "fps": 20.195811564931518,
+        "averageMs": 6.778260873711628,
+        "detail": "full"
+      }
+    },
+    {
+      "label": "chromium-mobile-financial",
+      "motion": {
+        "changedPercent": 49.454166666666666,
+        "meanDelta": 30.927208333333294
+      },
+      "resume": {
+        "changedPercent": 66.17083333333333,
+        "meanDelta": 34.28595833333332
+      },
+      "pointerDelta": {
+        "changedPercent": 33.360416666666666,
+        "meanDelta": 21.48981250000056
+      },
+      "scrollDelta": {
+        "changedPercent": 50.53958333333333,
+        "meanDelta": 35.024312499999134
+      },
+      "realTimePerformance": {
+        "fps": 19.944502254802078,
+        "averageMs": 13.730434775352478,
+        "detail": "full"
+      }
+    },
+    {
+      "label": "chromium-mobile-systems",
+      "motion": {
+        "changedPercent": 38.78125,
+        "meanDelta": 18.353305555555973
+      },
+      "resume": {
+        "changedPercent": 45.829166666666666,
+        "meanDelta": 20.796111111111507
+      },
+      "pointerDelta": {
+        "changedPercent": 30.15625,
+        "meanDelta": 16.915375000000193
+      },
+      "scrollDelta": {
+        "changedPercent": 36.672916666666666,
+        "meanDelta": 20.253437500003116
+      },
+      "realTimePerformance": {
+        "fps": 19.667832167832167,
+        "averageMs": 5.06000001695421,
+        "detail": "full"
+      }
+    },
+    {
+      "label": "chromium-mobile-industries",
+      "motion": {
+        "changedPercent": 35.41875,
+        "meanDelta": 17.322923611111182
+      },
+      "resume": {
+        "changedPercent": 37.204166666666666,
+        "meanDelta": 18.011277777777792
+      },
+      "pointerDelta": {
+        "changedPercent": 34.61875,
+        "meanDelta": 16.068270833333756
+      },
+      "scrollDelta": {
+        "changedPercent": 40.97708333333333,
+        "meanDelta": 21.414750000000513
+      },
+      "realTimePerformance": {
+        "fps": 20.08119788669073,
+        "averageMs": 9.40217390526896,
+        "detail": "full"
+      }
+    },
+    {
+      "label": "webkit-desktop-corporate",
+      "motion": {
+        "changedPercent": 45.33777777777778,
+        "meanDelta": 24.143731481482074
+      },
+      "resume": {
+        "changedPercent": 54.49944444444444,
+        "meanDelta": 26.65887037037283
+      },
+      "pointerDelta": {
+        "changedPercent": 38.49722222222222,
+        "meanDelta": 18.189662962963258
+      },
+      "scrollDelta": {
+        "changedPercent": 47.727777777777774,
+        "meanDelta": 23.35274444444503
+      },
+      "realTimePerformance": {
+        "fps": 11.03565365025467,
+        "averageMs": 10.807692307692308,
+        "detail": "light"
+      }
+    },
+    {
+      "label": "webkit-desktop-ai",
+      "motion": {
+        "changedPercent": 30.79888888888889,
+        "meanDelta": 13.857846296296168
+      },
+      "resume": {
+        "changedPercent": 30.2,
+        "meanDelta": 14.396274074074478
+      },
+      "pointerDelta": {
+        "changedPercent": 29.254444444444445,
+        "meanDelta": 13.566357407407779
+      },
+      "scrollDelta": {
+        "changedPercent": 33.592777777777776,
+        "meanDelta": 16.48559444444486
+      },
+      "realTimePerformance": {
+        "fps": 10.156580617858655,
+        "averageMs": 17.791666666666668,
+        "detail": "full"
+      }
+    },
+    {
+      "label": "webkit-desktop-financial",
+      "motion": {
+        "changedPercent": 49.24444444444445,
+        "meanDelta": 26.72614074074199
+      },
+      "resume": {
+        "changedPercent": 48.61611111111111,
+        "meanDelta": 23.656838888888668
+      },
+      "pointerDelta": {
+        "changedPercent": 23.807777777777776,
+        "meanDelta": 16.832927777776973
+      },
+      "scrollDelta": {
+        "changedPercent": 44.61944444444445,
+        "meanDelta": 33.71518148147553
+      },
+      "realTimePerformance": {
+        "fps": 12.706480304955527,
+        "averageMs": 18.4,
+        "detail": "light"
+      }
+    },
+    {
+      "label": "webkit-desktop-systems",
+      "motion": {
+        "changedPercent": 31.322777777777777,
+        "meanDelta": 16.993679629629213
+      },
+      "resume": {
+        "changedPercent": 36.04055555555556,
+        "meanDelta": 18.25199259259343
+      },
+      "pointerDelta": {
+        "changedPercent": 25.401666666666667,
+        "meanDelta": 15.525781481481673
+      },
+      "scrollDelta": {
+        "changedPercent": 32.34166666666667,
+        "meanDelta": 19.090838888887358
+      },
+      "realTimePerformance": {
+        "fps": 10.734220695577502,
+        "averageMs": 14.24,
+        "detail": "full"
+      }
+    },
+    {
+      "label": "webkit-desktop-industries",
+      "motion": {
+        "changedPercent": 35.93277777777778,
+        "meanDelta": 21.278355555557347
+      },
+      "resume": {
+        "changedPercent": 33.580555555555556,
+        "meanDelta": 21.862966666667177
+      },
+      "pointerDelta": {
+        "changedPercent": 34.10333333333333,
+        "meanDelta": 17.516283333333984
+      },
+      "scrollDelta": {
+        "changedPercent": 38.224444444444444,
+        "meanDelta": 22.236418518519304
+      },
+      "realTimePerformance": {
+        "fps": 10.93815734118637,
+        "averageMs": 8.76923076923077,
+        "detail": "light"
+      }
+    },
+    {
+      "label": "webkit-mobile-corporate",
+      "motion": {
+        "changedPercent": 46.045833333333334,
+        "meanDelta": 21.047694444444616
+      },
+      "resume": {
+        "changedPercent": 52.74791666666667,
+        "meanDelta": 23.393555555555505
+      },
+      "pointerDelta": {
+        "changedPercent": 40.80625,
+        "meanDelta": 19.948881944444786
+      },
+      "scrollDelta": {
+        "changedPercent": 50.42916666666667,
+        "meanDelta": 24.747451388888656
+      },
+      "realTimePerformance": {
+        "fps": 13.787160706591987,
+        "averageMs": 18.09375,
+        "detail": "full"
+      }
+    },
+    {
+      "label": "webkit-mobile-ai",
+      "motion": {
+        "changedPercent": 25.94375,
+        "meanDelta": 13.117784722222336
+      },
+      "resume": {
+        "changedPercent": 29.127083333333335,
+        "meanDelta": 14.693763888889022
+      },
+      "pointerDelta": {
+        "changedPercent": 25.40625,
+        "meanDelta": 12.82790972222231
+      },
+      "scrollDelta": {
+        "changedPercent": 31.08125,
+        "meanDelta": 16.461409722222626
+      },
+      "realTimePerformance": {
+        "fps": 21.92982456140351,
+        "averageMs": 10.04,
+        "detail": "full"
+      }
+    },
+    {
+      "label": "webkit-mobile-financial",
+      "motion": {
+        "changedPercent": 51.87291666666667,
+        "meanDelta": 32.252416666667465
+      },
+      "resume": {
+        "changedPercent": 64.69375,
+        "meanDelta": 32.47302083333216
+      },
+      "pointerDelta": {
+        "changedPercent": 33.34166666666667,
+        "meanDelta": 21.475138888889393
+      },
+      "scrollDelta": {
+        "changedPercent": 50.360416666666666,
+        "meanDelta": 34.91360416666646
+      },
+      "realTimePerformance": {
+        "fps": 14.354066985645932,
+        "averageMs": 18.181818181818183,
+        "detail": "full"
+      }
+    },
+    {
+      "label": "webkit-mobile-systems",
+      "motion": {
+        "changedPercent": 38.958333333333336,
+        "meanDelta": 18.34772222222239
+      },
+      "resume": {
+        "changedPercent": 45.520833333333336,
+        "meanDelta": 20.67640277777833
+      },
+      "pointerDelta": {
+        "changedPercent": 30.21875,
+        "meanDelta": 16.92368750000024
+      },
+      "scrollDelta": {
+        "changedPercent": 36.6875,
+        "meanDelta": 20.25961805555874
+      },
+      "realTimePerformance": {
+        "fps": 21.57639806252752,
+        "averageMs": 7.040816326530612,
+        "detail": "full"
+      }
+    },
+    {
+      "label": "webkit-mobile-industries",
+      "motion": {
+        "changedPercent": 35.510416666666664,
+        "meanDelta": 17.27721527777793
+      },
+      "resume": {
+        "changedPercent": 37.24791666666667,
+        "meanDelta": 17.86736805555551
+      },
+      "pointerDelta": {
+        "changedPercent": 34.58541666666667,
+        "meanDelta": 16.0808819444447
+      },
+      "scrollDelta": {
+        "changedPercent": 40.95625,
+        "meanDelta": 21.37370833333384
+      },
+      "realTimePerformance": {
+        "fps": 20.969855832241155,
+        "averageMs": 12.416666666666666,
+        "detail": "full"
+      }
+    }
+  ],
+  "entranceLabSnapshot": {
+    "environment": "Local Chromium, 1440x900, external services blocked; lab measurements, not field Core Web Vitals",
+    "pages": [
+      {
+        "area": "corporate",
+        "fcp": 160,
+        "dom": 176.69999992847443,
+        "renderer": {
+          "frames": 31,
+          "totalMs": 363.89999985694885,
+          "maxMs": 79.69999992847443,
+          "detail": "light"
+        },
+        "cls": 0.08582121515051655,
+        "longTasks": [
+          99
+        ]
+      },
+      {
+        "area": "ai",
+        "fcp": 136,
+        "dom": 125.70000004768372,
+        "renderer": {
+          "frames": 30,
+          "totalMs": 413.7000004053116,
+          "maxMs": 75.39999997615814,
+          "detail": "full"
+        },
+        "cls": 0.09406812029133446,
+        "longTasks": [
+          94
+        ]
+      },
+      {
+        "area": "financial",
+        "fcp": 132,
+        "dom": 179.10000002384186,
+        "renderer": {
+          "frames": 29,
+          "totalMs": 550.3999999761581,
+          "maxMs": 47.299999952316284,
+          "detail": "full"
+        },
+        "cls": 0.040573965399680646,
+        "longTasks": [
+          65
+        ]
+      },
+      {
+        "area": "systems",
+        "fcp": 152,
+        "dom": 113.39999997615814,
+        "renderer": {
+          "frames": 30,
+          "totalMs": 299.49999964237213,
+          "maxMs": 51.39999997615814,
+          "detail": "full"
+        },
+        "cls": 0.0009909477411801269,
+        "longTasks": [
+          69
+        ]
+      },
+      {
+        "area": "industries",
+        "fcp": 132,
+        "dom": 124.29999995231628,
+        "renderer": {
+          "frames": 29,
+          "totalMs": 527.3000003099442,
+          "maxMs": 67.79999995231628,
+          "detail": "full"
+        },
+        "cls": 0.09602827654133446,
+        "longTasks": [
+          85
+        ]
+      }
+    ]
+  },
+  "finalFinancialRegression": {
+    "tests": 11,
+    "passed": 11,
+    "failed": 0,
+    "viewportWidths": [
+      1440,
+      768,
+      390,
+      320
+    ]
+  },
+  "visualReview": {
+    "engines": [
+      "chromium",
+      "webkit"
+    ],
+    "interiorRoutes": 19,
+    "viewportWidths": [
+      1440,
+      390
+    ],
+    "artifacts": "test-results/signature/review-{engine}-{1..5}.png"
+  }
+}
