@@ -1,0 +1,21 @@
+/* Manufacturing & Defense Solutions: extends corporate.css; no brand overrides. */
+.mds-lead { font-size: 21px; color: var(--text); max-width: 760px; }
+.mds-offer { margin-top: 32px; }
+.mds-offer .note { display: block; margin-top: 14px; color: var(--muted); font-size: 14px; max-width: 640px; }
+.mds-services { counter-reset: svc; list-style: none; padding: 0; margin: 35px 0 0;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.mds-services li { border: 1px solid var(--line); border-radius: 5px; padding: 28px;
+  background: linear-gradient(135deg, #172a40a6, #0b1729); counter-increment: svc; }
+.mds-services li::before { content: "0" counter(svc); font-size: 10px; letter-spacing: .18em; color: var(--blue); }
+.mds-services h3 { margin: 14px 0 10px; }
+.mds-services p { margin: 0; color: var(--muted); }
+.mds-founder { max-width: 820px; }
+.mds-notice { border: 1px solid var(--line); border-radius: 5px; padding: 24px 28px;
+  background: #0b1729; max-width: 820px; }
+.mds-notice h2, .mds-notice h3 { margin-top: 0; }
+.mds-notice ul { margin: 0; padding-left: 20px; color: var(--muted); }
+.mds-notice li + li { margin-top: 8px; }
+@media (max-width: 960px) { .mds-services { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .mds-services { grid-template-columns: 1fr; gap: 16px; }
+  .mds-services li { padding: 25px; } .mds-lead { font-size: 18px; } }
+.closing .note, .mds-offer .note { color: var(--muted); font-size: 14px; }

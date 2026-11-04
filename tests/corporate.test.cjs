@@ -7,7 +7,7 @@ const { chromium } = require("playwright");
 const AxeBuilder = require("@axe-core/playwright").default;
 const root = path.resolve(__dirname, "..");
 let server, browser, base;
-const pages = ["index.html", "mission.html", "about.html", "divisions.html", ...["ai", "financial", "systems", "industries"].flatMap(d => require("node:fs").readdirSync(path.join(root,d)).filter(f=>f.endsWith(".html")).map(f=>`${d}/${f}`)), "features.html", "how-it-works.html", "roadmap.html", "brokerage-agnostic.html", "for-traders.html", "news.html"];
+const pages = ["index.html", "mission.html", "about.html", "divisions.html", "consulting/index.html", ...["ai", "financial", "systems", "industries"].flatMap(d => require("node:fs").readdirSync(path.join(root,d)).filter(f=>f.endsWith(".html")).map(f=>`${d}/${f}`)), "features.html", "how-it-works.html", "roadmap.html", "brokerage-agnostic.html", "for-traders.html", "news.html"];
 const mission =
   "To engineer intelligent technologies that solve meaningful problems, protect what matters, and expand what people and businesses can achieve.";
 const supporting =
