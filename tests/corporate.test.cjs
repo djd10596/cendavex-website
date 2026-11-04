@@ -182,7 +182,7 @@ for (const file of pages) {
     await menu.locator('summary').press('Enter');
     assert.equal(await menu.locator('nav').isVisible(), true);
     await page.locator('.division-switcher summary').click();
-    assert.equal(await page.locator('.division-switcher nav a').count(), 5);
+    assert.equal(await page.locator('.division-switcher nav a').count(), 6);
     if (file === 'financial/academy.html' || file === 'financial/trading.html') {
       await page.locator('[data-demo="1"]').click();
       assert.equal(await page.locator('#demo-title').textContent(), 'Make the reasoning visible.');
