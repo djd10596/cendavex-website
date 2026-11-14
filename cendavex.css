@@ -1,0 +1,39 @@
+/* Cendavex additions to the reused site design. The visual system itself (styles.css, brand.css, corporate.css, divisions.css, experience.css, cinematic.css, signature.css) is the CURRENT cendavex.com design, unchanged. This file only (1) fits the official horizontal logo into the existing header, (2) styles the footer sign-off, (3) styles the film page with the design's own colours. No inline styles anywhere (the pages' content security policy forbids them). */
+/* 1. the official horizontal logo (2300 x 620, tagline included) replaces the old square emblem plus text lockup */
+body .shell .brand-bar .brand-lockup{gap:0;min-width:0;max-width:100%}
+body .shell .brand-bar .brand-lockup img,body .shell:has(.cinema-hero) .brand-bar .brand-lockup img{display:block;width:auto;height:54px;max-width:100%;object-fit:contain;filter:drop-shadow(0 6px 22px #58a9ff30)}
+@media(max-width:760px){body .shell .brand-bar .brand-lockup img,body .shell:has(.cinema-hero) .brand-bar .brand-lockup img{height:40px}}
+/* 2. the footer: the sign-off is always last */
+.cx-foot .foot-links{flex:1 1 100%;display:flex;flex-wrap:wrap;gap:6px 18px;margin:10px 0}
+.cx-foot .fine{flex:1 1 100%;color:#b5c6db;font-size:13px;max-width:78ch}
+.cx-foot .motto{flex:1 1 100%;margin:18px 0 0;color:#F59E42;font-weight:800;letter-spacing:.22em;font-size:14px}
+/* 3. the film page, in the design's colours */
+.film-stage-wrap{max-width:1100px;margin-inline:auto}
+.scene-box{position:relative;aspect-ratio:16/9;background:radial-gradient(circle at 50% 45%,#12446c 0%,#081e35 55%,#020711 100%);border:1px solid #29405b;border-radius:18px;overflow:hidden;box-shadow:0 0 60px #2b7cff22}
+.scene{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .8s,visibility 0s linear .8s;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:4%}
+.scene.on{opacity:1;visibility:visible;transition-delay:0s}
+.scene svg{width:min(60%,420px);height:auto}
+.scene .scene-logo{width:min(80%,640px);height:auto}
+.scene .cap-big{font-size:clamp(1.1rem,3.2vw,2.2rem);font-weight:800;margin:.4em 0;color:#edf5ff}
+.scene .cap-sub{color:#cfe0ef;font-size:clamp(.85rem,1.8vw,1.15rem);max-width:52ch;margin:0}
+.scene .motto-card{color:#F59E42;font-weight:800;letter-spacing:.16em;font-size:clamp(1rem,2.6vw,1.8rem);margin:.8em 0 0}
+.controls{display:none;gap:12px;align-items:center;flex-wrap:wrap;margin:16px 0}
+.js .controls{display:flex}
+.controls button{background:#142c4c;color:#d5eaff;border:1px solid #4f7dac;border-radius:8px;padding:10px 16px;min-height:44px;font:inherit;cursor:pointer}
+.controls button:focus-visible,.controls input:focus-visible{outline:3px solid #F59E42;outline-offset:3px}
+.controls input[type=range]{flex:1;min-width:160px;accent-color:#83beff}
+.controls .fine,.film-stage-wrap .fine{color:#b5c6db;font-size:14px}
+.node{fill:#83beff}.node.hot{fill:#F59E42}
+.edge{stroke:#83beff;stroke-width:2;opacity:.6;fill:none}
+.codebar{fill:#83beff;opacity:.75}.codebar.o{fill:#F59E42}
+.check{stroke:#F59E42;fill:none;stroke-width:8;stroke-linecap:round;stroke-linejoin:round}
+.void{fill:none;stroke:#83beff;stroke-width:3}
+.scene .label{fill:#edf5ff;font:700 18px system-ui,sans-serif;text-anchor:middle;letter-spacing:.12em}
+.n1{animation-delay:0s}.n2{animation-delay:.35s}.n3{animation-delay:.7s}.n4{animation-delay:1.05s}.n5{animation-delay:1.4s}.n6{animation-delay:1.75s}
+@keyframes cxpulse{0%,100%{opacity:.35}50%{opacity:1}}
+.blink{animation:cxpulse 2.2s infinite}
+.scene-box.paused *{animation-play-state:paused}
+.story{width:100%;border-collapse:collapse;margin:20px 0}
+.story th,.story td{border-bottom:1px solid #29405b;padding:12px 10px;text-align:left;vertical-align:top}
+.story th{color:#83beff;font-size:.78rem;text-transform:uppercase;letter-spacing:.14em}
+@media (prefers-reduced-motion:reduce){.blink{animation:none}.scene{transition:none}}
